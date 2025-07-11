@@ -145,3 +145,42 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
+.project-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-list {
+    width: 30%;
+    max-width: 300px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s;
+}
+
+.project-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.project-details {
+    width: 70%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
