@@ -37,6 +37,25 @@ function loadProject(projectId) {
 				<p><img src="Resources/Screenshots/" alt="Скриншот проекта"></p>
 			`;
 			break;
+
+		case "SimpleSurvivors":
+			content = `
+				<h2>Simple Survivors</h2>
+				<p><strong>Стек:</strong> C#, Windows Forms, GDI+, двойная буферизация, System.Media, сериализация объектов в файл через BinaryFormatter</p>
+				<p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Simple-Survivors" target="_blank">https://github.com/Spirzen/Simple-Survivors</a></p>
+				<p><strong>Описание:</strong> Простая аркадная игра в стиле Vampire Survivors с минимальной графикой и максимальным удовольствием от процесса. 2D-игра в жанре survival rogue-lite, где игроку предстоит выживать среди постоянно появляющихся врагов, получать опыт за убийства, повышать уровень и выбирать полезные бонусы для усиления. Цель проста: продержаться как можно дольше, уворачиваясь от противников и автоматически атакуя их.</p>
+				<p>Основные возможности</p>
+				<ul align="left">
+					<li align="left">Перемещение: W, A, S, D;</li>
+					<li align="left">Автоматическая атака каждые несколько секунд;</li>
+					<li align="left">Визуальные эффекты при попадании и получении урона;</li>
+					<li align="left">После повышения уровня игрок выбирает один из трёх бонусов; </li>
+					<li align="left">Потенциально бесконечный геймплей.</li>
+				</ul>
+				<p><strong>Скриншот:</strong></p>
+				<p><img src="Resources/Screenshots/SimpleSurvivors.png" alt="Скриншот проекта"></p>
+			`;
+			break;
 			
 		case "SimpleCRM":
 			content = `
