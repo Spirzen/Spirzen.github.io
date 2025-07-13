@@ -38,6 +38,32 @@ function loadProject(projectId) {
 			`;
 			break;
 
+		case "DockerfileGenerator":
+			content = `
+				<h2>Dockerfile Generator</h2>
+				<p><strong>Стек:</strong> JavaScript, HTML, CSS, Node.js, js-yaml, FileReader API, Blob API</p>
+				<p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/DockerfileGenerator" target="_blank">https://github.com/Spirzen/DockerfileGenerator</a></p>
+				<p><strong>Описание:</strong> Инструмент для генерации Dockerfile на основе YAML-конфигурации. Он позволяет быстро создавать Dockerfile без необходимости помнить синтаксис и структуру, просто описывая нужные параметры в удобном формате.</p>
+				<p>Проект предлагает два режима работы:</p>
+				<ul align="left">
+					<li align="left">Консольный — через Node.js CLI (node index.js);</li>
+					<li align="left">Веб-интерфейс — через браузер (index.html).</li>
+				</ul>
+				<p>Основные возможности</p>
+				<ul align="left">
+					<li align="left">Генерация Dockerfile из YAML-конфига;</li>
+					<li align="left">Поддержка ключевых инструкций: FROM, WORKDIR, COPY, RUN, EXPOSE, ENV, CMD;</li>
+					<li align="left">Валидация YAML;</li>
+					<li align="left">Редактирование YAML в интерфейсе; </li>
+					<li align="left">Загрузка своего YAML-файла; </li>
+					<li align="left">Просмотр и скачивание сгенерированного Dockerfile; </li>
+					<li align="left">Автономная работа (в том числе без интернета).</li>
+				</ul>
+				<p><strong>Скриншот:</strong></p>
+				<p><img src="Resources/Screenshots/DockerfileGenerator.png" alt="Скриншот проекта"></p>
+			`;
+			break;
+
 		case "Budman":
 			content = `
 				<h2>Budman - Бюджетный менеджер</h2>
