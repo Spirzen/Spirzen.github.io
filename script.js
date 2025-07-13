@@ -38,6 +38,23 @@ function loadProject(projectId) {
 			`;
 			break;
 
+		case "JPGPDF":
+			content = `
+				<h2>JPG-PDF конвертер</h2>
+				<p><strong>Стек:</strong> Python, Tkinter, Pillow, PDF, JPG</p>
+				<p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/JPG-PDF" target="_blank">https://github.com/Spirzen/JPG-PDF</a></p>
+				<p><strong>Описание:</strong> Простая программа на Python, которая объединяет несколько изображений (JPG/PNG) в один PDF-файл.</p>
+				<p>Основные возможности</p>
+				<ul align="left">
+					<li align="left">Выбор нескольких JPG или PNG изображений;</li>
+					<li align="left">Указание папки для сохранения PDF;</li>
+					<li align="left">Сохранение всех изображений в одном PDF-файле.</li>
+				</ul>
+				<p><strong>Скриншот:</strong></p>
+				<p><img src="Resources/Screenshots/JPG-PDF.png" alt="Скриншот проекта"></p>
+			`;
+			break;
+
 		case "DockerfileGenerator":
 			content = `
 				<h2>Dockerfile Generator</h2>
