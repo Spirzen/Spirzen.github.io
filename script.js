@@ -38,6 +38,25 @@ function loadProject(projectId) {
 			`;
 			break;
 
+		case "Budman":
+			content = `
+				<h2>Budman - Бюджетный менеджер</h2>
+				<p><strong>Стек:</strong> JavaScript, HTML, CSS</p>
+				<p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Budman" target="_blank">https://github.com/Spirzen/Budman</a></p>
+				<p><strong>Описание:</strong> Это бюджетный менеджер - удобный и простой в использовании инструмент для планирования личного бюджета. Программа позволяет пользователям прогнозировать финансовое состояние на срок до 5 лет вперёд, учитывая ежемесячные доходы и расходы.</p>
+				<p>Основные возможности</p>
+				<ul align="left">
+					<li align="left">Учёт начального остатка : пользователь указывает сумму текущего счёта;</li>
+					<li align="left">Выбор стартового месяца и года : расчёт начинается с нужной даты;</li>
+					<li align="left">Гибкое добавление доходов и расходов : можно ввести несколько строк (например, зарплата, подработка, кредиты, аренда и т.д.);</li>
+					<li align="left">Автоматический расчёт итоговых сумм : программа складывает все доходы и расходы по категориям; </li>
+					<li align="left">Прогноз на 5 лет вперёд : формируется таблица с ежемесячным отображением.</li>
+				</ul>
+				<p><strong>Скриншот:</strong></p>
+				<p><img src="Resources/Screenshots/Budman.png" alt="Скриншот проекта"></p>
+			`;
+			break;
+
 		case "SimpleSurvivors":
 			content = `
 				<h2>Simple Survivors</h2>
