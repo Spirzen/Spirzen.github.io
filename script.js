@@ -386,6 +386,23 @@ function loadProject(projectId) {
 				<p><img src="Resources/Screenshots/CreditCalculator.jpg" alt="Скриншот проекта"></p>
 			`;
 			break;
+			
+		case "AIAssistant":
+			content = `
+				<h2>Simple-AI-Assistant</h2>
+				<p><strong>Стек:</strong>TypeScript, LM Studio, Visual Studio Code</p>
+				<p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Simple-AI-Assistant" target="_blank">https://github.com/Spirzen/Simple-AI-Assistant</a></p>
+				<p><strong>Описание:</strong> Расширение для Visual Studio Code, которое присоединяется к развёрнутой при помощи LMStudio LLM-модели, и позволяет использовать ИИ локально, использовать любой контекст и, к примеру, задавать вопросы по открытому в редакторе файлу - править, улучшать, консультироваться. Требует активный сервер LMStudio.</p>
+				<p>Основные возможности</p>
+				<ul align="left">
+					<li align="left">Можно установить бесплатно в Visual Studio Code;</li>
+					<li align="left">Можно получать ответы от нейросети прямо в редакторе;</li>
+					<li align="left">Качество ответов зависит от загруженной модели.</li>
+				</ul>
+				<p><strong>Скриншот:</strong></p>
+				<p><img src="Resources/Screenshots/AIAssistant.png" alt="Скриншот проекта"></p>
+			`;
+			break;
 	}
 
 	details.innerHTML = content;
