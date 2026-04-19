@@ -10,11 +10,11 @@
 <body>
 	<nav class="navbar">
 	<ul class="nav-tabs">
-		<li><a href="#" class="tab-link active" data-tab="home">🏠 Главная</a></li>
-		<li><a href="#" class="tab-link" data-tab="projects">📁 Проекты</a></li>
-		<li><a href="#" class="tab-link" data-tab="analytics">Аналитика</a></li>
-		<li><a href="#" class="tab-link" data-tab="books">📕 Книги</a></li>
+		<li><a href="#" class="tab-link active" data-tab="home">Главная</a></li>
+		<li><a href="#" class="tab-link" data-tab="projects">Проекты</a></li>
 		<li><a href="#" class="tab-link" data-tab="it-book">Вселенная IT</a></li>
+		<li><a href="#" class="tab-link" data-tab="analytics">Аналитика</a></li>
+		<li><a href="#" class="tab-link" data-tab="books">Книги</a></li>
 	</ul>
 	</nav>
 
@@ -26,10 +26,10 @@
 					<h2 align="center" class="animated animated-delay-2">Меня зовут Тимур, я full-stack разработчик и аналитик.</h2>
 
 					<p class="animated animated-delay-3"><strong>Технологический стек:</strong></p>
-					<p class="animated animated-delay-4">C# / .NET, Java, JavaScript, TypeScript, Python, ASP.NET, Entity Framework, REST API, SOAP, XML, JSON, HTML, CSS, XSLT, MS SQL, PostgreSQL, SQLite, Oracle DB, MongoDB, Redis, ElasticSearch, Docker, Git, CI/CD, Linux, СМЭВ, Swagger, Telegram API, Unity, Steam, WPF, MAUI, XAML, Windows Forms, jQuery, ClickHouse, Node.js, Identity Framework, Bootstrap, Razor Pages.</p>
+					<p class="animated animated-delay-4">C# / .NET, Java, JavaScript, TypeScript, Python, ASP.NET, Entity Framework, REST API, SOAP, XML, JSON, HTML, CSS, XSLT, MS SQL, PostgreSQL, SQLite, Oracle DB, MongoDB, Redis, ElasticSearch, Docker, Git, CI/CD, Linux, СМЭВ, Swagger, Telegram API, Unity, Steam, WPF, MAUI, XAML, Windows Forms, jQuery, ClickHouse, Node.js, Identity Framework, Bootstrap, Razor Pages, Docusaurus, Flask.</p>
 					<p class="animated animated-delay-5">Если вас интересуют мои проекты, вы можете посмотреть их <a href="#" class="tab-switch" data-tab="projects">здесь</a>.</p>
 					<p class="animated animated-delay-6">Если вас интересует мой опыт как аналитика, вы можете посмотреть <a href="#" class="tab-switch" data-tab="analytics">здесь</a>.</p>
-					<p class="animated animated-delay-7">Если вас интересует мой опыт как технического писателя, вы можете посмотреть <a href="https://github.com/Spirzen/DemoWiki">здесь</a>. Это специальный репозиторий с демонстрационными материалами по техпису.</p>
+					<p class="animated animated-delay-7">Если вас интересует мой опыт как технического писателя, вы можете посмотреть <a href="https://spirzen.ru/">здесь</a>. Это мой крупнейший проект - "Вселенная IT". Подробности в <a href="#" class="tab-switch" data-tab="it-book">соответствующем разделе</a>.</p>
 					<h2 align="center" class="animated animated-delay-8">О себе</h2>
 					<p class="animated animated-delay-8">Изучаю историю IT и индустрию в целом. Стремлюсь применять технические навыки и опыт управления проектами для решения сложных задач в высоконагруженных системах. Пишу утилиты для себя.</p>
 					<ul>
@@ -127,12 +127,16 @@
 			<p>Разумеется, это пет-проекты. </p>
 			<p>Основные проекты весьма серьезные - это государственные, банковские, корпоративные системы, <strong>деталями о которых делиться нельзя</strong>.</p>
 			<p>Но зато я могу показать, что в свободное время я изучаю и другие технологии.</p>
-			<p><strong>Завершено:</strong>22</p>
+			<p>Мой самый крутой, огромный и полезный проект - полноценный сайт-энциклопедия на базе Docusaurus, <strong>Вселенная IT</strong>. Можете посетить его по адресу <a href="https://spirzen.ru">spirzen.ru</a>. Это открытая база знаний, которая включает в себя основы компьютерной и цифровой грамотности, операционные системы, железо, администрирование, техподдержку, данные и разметку (HTML, SQL, NoSQL, CSS, XML, JSON), алгоритмы, код, мышление, парадигмы, отладку и архитектуру выполнения, Git, асинхронность, языки программирования (JavaScript, Python, Java, C#, C++, PHP, Smalltalk, Kotlin, Go, Ruby, Rust, Groovy, Swift, Lua и многие другие), искусственный интеллект, методологии, документирование, проектирование и архитектуру, тестирование, инфраструктуру и безопасность, облачные технологии, DevOps, микросервисы, интеграции, Docker, Kubernetes, игры, блокчейн, этику, и даже отраслевое ПО. Это уникальный проект в своём масштабе и качестве.</p>
+			<p>Поскольку я преподаю программирование детям, часто обучаю коллег и друзей, и веду образовательный проект, то у меня есть и небольшие пет-проекты, которые можно посмотреть в моём репозитории. Кстати, Вселенная IT тоже имеет открытый код, всё доступно и бесплатно.</p>
+			<p><strong>Завершено:</strong>23</p>
 			<p><strong>В работе:</strong>8</p>
 			<div class="project-layout">
 				<div class="project-list">
 					<ul>
+						<li onclick="loadProject('ITUniverse')">📚 Вселенная IT</li>
 						<li onclick="loadProject('SimpleCRM')">🪪 Простая CRM-система</li>
+						<li onclick="loadProject('Camunda-Approval-Manager')">📎 Camunda-Approval-Manager</li>
 						<li onclick="loadProject('CurConverter')">💵 Конвертер валют ЦБ</li>
 						<li onclick="loadProject('WordTrainer')">🎖 WordTrainer</li>
 						<li onclick="loadProject('CSVJSONConverter')">🧩 CSV-JSON конвертер</li>
@@ -155,7 +159,6 @@
 						<li onclick="loadProject('MiniBrowser')">🌎 Мини-браузер</li>
 						<li onclick="loadProject('KnowledgeBase')">📎База знаний решений</li>
 						<li onclick="loadProject('AIAssistant')">👤 Simple AI Assistant</li>
-						<li onclick="loadProject('InProgress')">🛠 В работе</li>
 						<li onclick="loadProject('InProgress')">🛠 В работе</li>
 						<li onclick="loadProject('InProgress')">🛠 В работе</li>
 						<li onclick="loadProject('InProgress')">🛠 В работе</li>
@@ -249,6 +252,37 @@
 			<h1>Вселенная IT</h1>
 			<p>Уже можно начать читать энциклопедию:</p>
 			<a href="https://spirzen.ru/" target="_blank">https://spirzen.ru/</a>
+			<h2>Вселенная IT</h2>
+				<p><strong>Стек:</strong>JavaScript, Node.js, Docusaurus 3 (React-based, SSR, SSG), Markdown/MDX, HTML, GitHub Pages, CSS.</p>
+				<p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/it-knowledge-base" target="_blank">https://github.com/Spirzen/it-knowledge-base</a></p>
+				<p><strong>Описание:</strong> Проект "Вселенная IT" — это реализация системной инженерной парадигмы в области технической документации и образовательных знаний. Его цель — построение единой, самосогласованной, верифицируемой и долговечной базы знаний по информационным технологиям, способной функционировать как независимый справочный стандарт, свободный от коммерческих, политических и временных ограничений. Это инженерная модель предметной области, реализованная в виде документации.</p>
+				<p>Я учился сам, программировал, анализировал, документировал и даже руководил. На всём моём пути сталкивался с отсутствием грамотной систематизации знаний, хотя меня учили системности очень, очень грамотные люди. Это привело к тому, что я решил всё же начать вести свой собственный проект с образовательной тематикой.</p>
+				<p>В индустрии информационных технологий отсутствует единственный, независимый и глубоко верифицированный источник системных знаний, и специалист собирает знания из десятков несогласованных источников, формируя у себя внутреннюю карту, полную семантических разломов и ложных аналогий. Последствия — ошибки проектирования, неоптимальные решения, высокая стоимость поддержки, сложность передачи знаний внутри команды.</p>
+				<p>"Вселенная IT" закрывает эту потребность. Она предоставляет:</p>
+				<ul align="left">
+					<li align="left">Единый контекст для всех уровней знаний — от базовой компьютерной грамотности до архитектурных паттернов распределённых систем;</li>
+					<li align="left">Системную карту взаимосвязей: каждая статья явно указывает, на какие разделы она опирается (предпосылки), и какие темы развиваются на её основе (следствия);</li>
+					<li align="left">Практико-ориентированную структуру: теоретические концепции всегда сопровождаются примерами архитектур, ссылками на спецификации, диаграммами потоков данных и управления, кейсами ошибок и их диагностики.</li>
+				</ul>
+				<p>Проект реализован как полностью статический, самообслуживаемый документационный сайт, развёрнутый на открытой инфраструктуре. Архитектура строится вокруг модели жизненного цикла технической документации, включающей создание, верификацию, сборку, публикацию и долгосрочное хранение.</p>
+				<p>Изначально я писал книгу, но в дальнейшем проект трансформировался в полноценный сайт.</p>
+				<p>Я экспериментировал по разному - рассматривал Obsidian, MediaWiki, и много других платформ - но всё же самой гибкой и удобной оказался именно Docusaurus.</p>
+				<p>Сборка и развёртывание проекта полностью автоматизированы с помощью GitHub Actions, при этом используется и ручной деплой при необходимости.</p>
+				<p>В проекте применяется модель иерархического усвоения, заимствованная из когнитивной психологии и адаптированная для технического контента:</p>
+				<ul align="left">
+					<li align="left">Основы — фундаментальные понятия (информация, программа, интерфейс, сеть);</li>
+					<li align="left">Система и сеть — аппаратура, ОС, сетевой стек, администрирование;</li>
+					<li align="left">Данные и разметка — модели данных, СУБД (SQL/NoSQL), форматы (XML/JSON/Markdown/HTML);</li>
+					<li align="left">Код и разработка — инженерное мышление: парадигмы, архитектура, память, отладка;</li>
+					<li align="left">Искусственный интеллект, машинное обучение, работа с агентами и LLM;</li>
+					<li align="left">Языки — 15+ языков с акцентом на сравнительный анализ и переносимость знаний;</li>
+					<li align="left">Проект — жизненный цикл ПО, управление требованиями, документация (в т.ч. по ГОСТ), анализ и тестирование;</li>
+					<li align="left">Инфраструктура и безопасность — DevOps, облака, контейнеры, ИБ как сквозной атрибут;</li>
+					<li align="left">Спин-офф — смежные дисциплины: исторические фигуры, игры, блокчейн, ИИ, этика.</li>
+				</ul>
+				<p><strong>Скриншот:</strong></p>
+				<p><img src="Resources/Screenshots/logoITU.png" alt="Скриншот проекта"></p>
+				<p>Бесплатно, без рекламы, без партнёров.</p>
 		</div>
 	</div>
 	<script src="script.js"></script>
