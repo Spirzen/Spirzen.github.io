@@ -102,7 +102,7 @@ function loadProject(projectId) {
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
-        'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager'
+        'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager', 'SteamRandomLauncher'
     ];
     
     if (!knownProjects.includes(projectId)) {
@@ -551,6 +551,27 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/S3MM.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+				
+			case "SteamRandomLauncher":
+                content = `
+                    <h2>Steam Random Launcher</h2>
+                    <p><strong>Стек:</strong>Python, Pillow, Tkinter, SteamAPI, JSON</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Randomizer" target="_blank">https://github.com/Spirzen/Randomizer</a></p>
+                    <p><strong>Описание:</strong> Простое кроссплатформенное приложение с графическим интерфейсом для случайного выбора и запуска установленных игр из библиотеки Steam.</p>
+                    <p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">Автоматическое обнаружение установленных игр Steam;</li>
+                        <li align="left">Поддержка нескольких библиотек Steam (включая нестандартные расположения);</li>
+						<li align="left">Отображение названия игры и её иконки (если найдена в кэше Steam);</li>
+                        <li align="left">Запуск выбранной игры через протокол steam://run/;</li>
+						<li align="left">Перетаскивание папок библиотек (Drag & Drop) для быстрого добавления путей;</li>
+						<li align="left">Сохранение списка путей между запусками (steam_paths.json);</li>
+                        <li align="left">Случайный выбор игры с анимацией прокрутки.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/SteamRandomLauncher.png" alt="Скриншот проекта"></p>
                 `;
                 break;
                 
