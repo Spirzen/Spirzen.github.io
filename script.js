@@ -102,7 +102,7 @@ function loadProject(projectId) {
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
-        'Camunda-Approval-Manager', 'ITUniverse'
+        'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager'
     ];
     
     if (!knownProjects.includes(projectId)) {
@@ -533,6 +533,24 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/CamundaApproval2.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+				
+			case "S3MediaManager":
+                content = `
+                    <h2>S3MediaManager</h2>
+                    <p><strong>Стек:</strong>C#, ASP.NET Core Web API, MinIO Amazon S3, PostgreSQL, Entity Framework Core (Code First), Docker, Swagger/OpenAPI</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/S3MediaManager" target="_blank">https://github.com/Spirzen/S3MediaManager</a></p>
+                    <p><strong>Описание:</strong> Проект на стеке .NET 10, демонстрирующий реализацию полноценного сервиса управления медиафайлами. Приложение обеспечивает загрузку файлов в объектное хранилище (MinIO), хранение метаданных в реляционной базе данных (PostgreSQL) и предоставляет REST API для взаимодействия с данными.</p>
+                    <p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">Локальная загрузка файлов, удаление файлов, получение списка;</li>
+                        <li align="left">Использование API для интеграции с любыми клиентами - веб-сайтами, мобильными приложениями, десктопными программами;</li>
+                        <li align="left">Применение Docker для простого развёртывания и тестирования;</li>
+                        <li align="left">Масштабируемость за счет разделения ответственности между компонентами.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/S3MM.png" alt="Скриншот проекта"></p>
                 `;
                 break;
                 
