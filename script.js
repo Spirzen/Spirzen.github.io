@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
             theme: 'default',
             themeVariables: {
                 fontSize: '14px',
-                fontFamily: 'Segoe UI, Tahoma, sans-serif'
+                fontFamily: 'Calibri, sans-serif'
             },
             securityLevel: 'loose',
             logLevel: 0 // Скрываем предупреждения в консоли
@@ -103,7 +103,7 @@ function loadProject(projectId) {
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
         'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager', 'SteamRandomLauncher', 
-		'SimplePCMessenger'
+		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager'
     ];
     
     if (!knownProjects.includes(projectId)) {
@@ -594,6 +594,45 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/SimplePCMessenger.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+				
+			case "XMLValidator":
+                content = `
+                    <h2>XML Validator</h2>
+                    <p><strong>Стек:</strong>Python, Tkinter, lxml, XML, MVC.</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/XML-Validator" target="_blank">https://github.com/Spirzen/XML-Validator</a></p>
+                    <p><strong>Описание:</strong> Утилита, предназначенная для проверки соответствия XML-документов заданной XSD-схеме. Приложение предоставляет удобный интерфейс для выбора файлов, отображения статуса процесса и детального списка ошибок валидации.</p>
+					<p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">Выбор файла XSD через системный диалог;</li>
+                        <li align="left">Выбор файла XML для проверки через системный диалог;</li>
+						<li align="left">Проверка синтаксиса XML;</li>
+                        <li align="left">Проверка соответствия структуре XSD (элементы, атрибуты, типы данных, обязательность полей);</li>
+						<li align="left">Поддержка внешних ссылок внутри XSD (import/include), если пути указаны корректно;</li>
+						<li align="left">Визуальный прогресс-бар, статусная строка и цветовая индикация результата;</li>
+                        <li align="left">Детализированный список ошибок с указанием номера строки и столбца.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/XMLValidator.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+				
+			case "DockerMiniManager":
+                content = `
+                    <h2>Docker Mini Manager</h2>
+                    <p><strong>Стек:</strong>Python, Tkinter, Dockerfile, Docker.</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/DockerMini" target="_blank">https://github.com/Spirzen/DockerMini</a></p>
+                    <p><strong>Описание:</strong> Легковесный, кроссплатформенный графический интерфейс (GUI) для управления Docker-контейнерами и образами, написанный на чистом Python с использованием стандартной библиотеки tkinter.</p>
+					<p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">Просмотр списка активных контейнеров, их остановка и удаление через удобный список с подтверждением действий;</li>
+                        <li align="left">Вывод логов выполнения команд в реальном времени внутри приложения;</li>
+						<li align="left">Умный конструктор, который формирует корректные команды docker на основе введенных параметров, предотвращая синтаксические ошибки;</li>
+                        <li align="left">Поддержка всех базовых операций: Build, Run, Pull, Stop, Remove Image, Remove Container.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/DockerMiniManager.png" alt="Скриншот проекта"></p>
                 `;
                 break;
                 
