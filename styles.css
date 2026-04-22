@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Calibri', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -97,7 +97,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Calibri', sans-serif;
   background: linear-gradient(90deg, #5e0952, #e588f8);
   -webkit-background-clip: text;
   color: transparent;
@@ -240,13 +240,11 @@ a {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  animation: fadeIn 1s ease-out 1.8s forwards; /* Появляется последним */
+  animation: fadeIn 1s ease-out 1.8s forwards;
 }
 
-/* ... существующие стили ... */
-
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Calibri', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -344,7 +342,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Calibri', sans-serif;
   background: linear-gradient(90deg, #5e0952, #e588f8);
   -webkit-background-clip: text;
   color: transparent;
