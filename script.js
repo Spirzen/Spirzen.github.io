@@ -102,7 +102,8 @@ function loadProject(projectId) {
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
-        'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager', 'SteamRandomLauncher'
+        'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager', 'SteamRandomLauncher', 
+		'SimplePCMessenger'
     ];
     
     if (!knownProjects.includes(projectId)) {
@@ -572,6 +573,27 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/SteamRandomLauncher.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+				
+			case "SimplePCMessenger":
+                content = `
+                    <h2>Simple PC Messenger</h2>
+                    <p><strong>Стек:</strong>C#, .NET 10, WPF, Sockets (TCP), NetworkStream, Console App, JSON, AesGcm Cryptography, XAML, MVVM, P2P, LAN.</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Simple-PC-Messenger" target="_blank">https://github.com/Spirzen/Simple-PC-Messenger</a></p>
+                    <p><strong>Описание:</strong> Кроссплатформенное десктопное приложение для обмена мгновенными сообщениями и передачи файлов, реализованное на C# (.NET). Проект демонстрирует гибридную архитектуру связи: Клиент-Сервер (для работы через интернет) и P2P (прямое соединение в локальной сети), а также закладывает фундамент для шифрования данных.</p>
+					<p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">Режим Клиент-Сервер: Работа через центральный сервер (удаленные пользователи, общий чат, передача файлов);</li>
+                        <li align="left">Режим P2P (Peer-to-Peer): Прямое соединение между двумя клиентами в одной локальной сети (LAN) без участия сервера для обмена текстом и файлами;</li>
+						<li align="left">Текстовые чаты с поддержкой личного общения и общих каналов;</li>
+                        <li align="left">Отправка файлов любого размера с разбивкой на чанки, индикаторами прогресса и автоматическим сохранением;</li>
+						<li align="left">Реализована база для шифрования трафика с использованием алгоритма AES-GCM (ключи генерируются и хранятся локально). В текущей версии работает режим "без шифрования" для отладки;</li>
+						<li align="left">Автоматическое определение локального IP, проверка доступности портов, копирование IP в буфер обмена;</li>
+                        <li align="left">Современный темный интерфейс на WPF с использованием XAML и MVVM-подобной структуры.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/SimplePCMessenger.png" alt="Скриншот проекта"></p>
                 `;
                 break;
                 
