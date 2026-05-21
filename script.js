@@ -1,56 +1,143 @@
-// Инициализация Mermaid при полной загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof mermaid !== 'undefined') {
-        // Настройка Mermaid
-        mermaid.initialize({ 
-            startOnLoad: false, // Отключаем авто-загрузку, будем вызывать вручную
-            theme: 'default',
-            themeVariables: {
-                fontSize: '14px',
-                fontFamily: 'Calibri, sans-serif'
-            },
-            securityLevel: 'loose',
-            logLevel: 0 // Скрываем предупреждения в консоли
-        });
-        
-        console.log('Mermaid initialized successfully.');
-    } else {
-        console.error('Mermaid library not found. Check the script tag in HTML.');
-    }
-});
+const THEME_KEY = 'portfolio-theme';
 
-// Функция для безопасной отрисовки диаграмм
-function renderMermaidDiagrams() {
-    if (typeof mermaid === 'undefined') return;
-
-    const diagramContainers = document.querySelectorAll('.mermaid');
-    
-    if (diagramContainers.length > 0) {
-        // Небольшая задержка (50-100мс), чтобы гарантировать, что элемент видим и имеет размеры
-        setTimeout(() => {
-            try {
-                // Очищаем предыдущие попытки отрисовки (удаляем старые SVG элементы внутри контейнеров)
-                diagramContainers.forEach(container => {
-                    container.removeAttribute('data-processed');
-                    // Если там уже есть SVG, удаляем его, чтобы Mermaid создал новый
-                    const existingSvg = container.querySelector('svg');
-                    if (existingSvg) {
-                        existingSvg.remove();
-                    }
-                });
-
-                // Запускаем рендеринг
-                mermaid.run({
-                    querySelector: '.mermaid'
-                }).catch(err => {
-                    console.error("Ошибка рендеринга Mermaid:", err);
-                });
-            } catch (e) {
-                console.error("Ошибка в логике рендеринга:", e);
-            }
-        }, 100);
-    }
+function getPreferredTheme() {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(THEME_KEY, theme);
+    const btn = document.getElementById('themeToggle');
+    if (btn) btn.textContent = theme === 'dark' ? '☀' : '◐';
+}
+
+const PIPELINE_STEPS = [
+    { title: 'Бизнес-требования', text: 'Сбор и согласование целей с заказчиком, фиксация ограничений, рисков и критериев приёмки.' },
+    { title: 'Анализ', text: 'Декомпозиция задачи, уточнение сценариев, приоритизация, согласование с бизнесом и ИТ.' },
+    { title: 'BPMN и UML', text: 'Формализация процессов (BPMN 2.0), модели данных, диаграммы взаимодействия и состояний.' },
+    { title: 'Архитектура', text: 'Выбор стека, границы сервисов, интеграции REST/SOAP, схемы БД, нефункциональные требования.' },
+    { title: 'Разработка', text: 'Реализация на C#, Java, TypeScript, low-code (BPMSoft, ELMA365), коннекторы и автоматизация.' },
+    { title: 'Тест и деплой', text: 'Проверка сценариев, регресс, CI/CD (GitLab, GitHub Actions), выкладка и сопровождение.' }
+];
+
+const ECO_DETAILS = {
+    author: { title: 'Автор и методист', text: 'Тагиров Тимур — архитектура знаний, структура разделов, теги, демо и публикация с 2018 года.' },
+    articles: { title: '3000+ статей', text: 'Markdown и MDX в docs/: энциклопедия, подборки, инструменты, контекст отраслей.' },
+    lab: { title: 'Лаборатория и глоссарий', text: 'Практикумы, тренажёры, экзамены и алфавитный справочник терминов.' },
+    docusaurus: { title: 'Docusaurus + React', text: 'SSG-сборка it-knowledge-base: тема, sidebar, PDF, «См. также», GitHub Actions → spirzen.ru.' },
+    demos: { title: '120+ интерактивных демо', text: 'React-виджеты в статьях: терминал, Docker, SQL, Git, Kafka, нейросети и др.' },
+    maui: { title: '.NET MAUI', text: 'Нативная оболочка itu-mobile-app: Shell, каталог, закладки, ru.spirzen.ituniverse.' },
+    webview: { title: 'WebView и поиск', text: 'Статьи с spirzen.ru, локальный search-manifest, офлайн-закладки, навигация назад/вперёд.' },
+    site: { title: 'spirzen.ru', text: 'Единая точка публикации: веб-читалка и источник контента для мобильного клиента.' }
+};
+
+const ECO_LINKS = {
+    author: ['articles', 'lab'],
+    articles: ['author', 'docusaurus', 'demos'],
+    lab: ['author', 'docusaurus'],
+    docusaurus: ['articles', 'demos', 'site'],
+    demos: ['articles', 'docusaurus', 'site'],
+    maui: ['webview', 'site'],
+    webview: ['maui', 'site'],
+    site: ['docusaurus', 'demos', 'webview']
+};
+
+function initAnalyticsPipeline() {
+    const container = document.getElementById('analyticsPipeline');
+    if (!container || container.dataset.ready) return;
+
+    const steps = container.querySelectorAll('.pipe-step');
+    const titleEl = document.getElementById('pipelinePanelTitle');
+    const textEl = document.getElementById('pipelinePanelText');
+
+    function activate(index) {
+        steps.forEach((btn, i) => {
+            const on = i === index;
+            btn.classList.toggle('active', on);
+            btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        const step = PIPELINE_STEPS[index];
+        if (step && titleEl && textEl) {
+            titleEl.textContent = step.title;
+            textEl.textContent = step.text;
+        }
+    }
+
+    steps.forEach((btn) => {
+        btn.addEventListener('click', () => activate(Number(btn.dataset.step)));
+    });
+
+    container.dataset.ready = '1';
+}
+
+function initEcoViz() {
+    const viz = document.getElementById('ecoViz');
+    if (!viz || viz.dataset.ready) return;
+
+    const nodes = viz.querySelectorAll('.eco-node, .eco-hub');
+    const titleEl = document.getElementById('ecoPanelTitle');
+    const textEl = document.getElementById('ecoPanelText');
+
+    function clearHighlight() {
+        nodes.forEach((n) => n.classList.remove('active', 'dimmed', 'highlight'));
+    }
+
+    function selectEco(id) {
+        const info = ECO_DETAILS[id];
+        if (!info) return;
+
+        clearHighlight();
+        const related = new Set([id, ...(ECO_LINKS[id] || [])]);
+
+        nodes.forEach((node) => {
+            const nid = node.dataset.eco;
+            if (!nid) return;
+            if (nid === id) {
+                node.classList.add('active', 'highlight');
+            } else if (related.has(nid)) {
+                node.classList.add('highlight');
+            } else {
+                node.classList.add('dimmed');
+            }
+        });
+
+        if (titleEl) titleEl.textContent = info.title;
+        if (textEl) textEl.textContent = info.text;
+    }
+
+    nodes.forEach((node) => {
+        node.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = node.dataset.eco;
+            if (node.classList.contains('active')) {
+                clearHighlight();
+                if (titleEl) titleEl.textContent = 'Экосистема';
+                if (textEl) textEl.textContent = 'Выберите элемент схемы — подсветится связь с остальными узлами.';
+                return;
+            }
+            selectEco(id);
+        });
+    });
+
+    viz.dataset.ready = '1';
+}
+
+function initInteractiveDiagrams() {
+    initAnalyticsPipeline();
+    initEcoViz();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    applyTheme(getPreferredTheme());
+    initInteractiveDiagrams();
+
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+    });
+});
 
 // Логика переключения табов
 document.querySelectorAll('.tab-link, .tab-switch').forEach(link => {
@@ -76,9 +163,8 @@ document.querySelectorAll('.tab-link, .tab-switch').forEach(link => {
                     this.classList.add('active');
                 }
 
-                // ПРОВЕРКА: Если мы перешли на вкладку с диаграммами, перерисовываем их
-                if (tabId === 'analytics') {
-                    renderMermaidDiagrams();
+                if (tabId === 'analytics' || tabId === 'it-book') {
+                    initInteractiveDiagrams();
                 }
             }
         }
@@ -102,7 +188,7 @@ function loadProject(projectId) {
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
-        'Camunda-Approval-Manager', 'ITUniverse', 'S3MediaManager', 'SteamRandomLauncher', 
+        'Camunda-Approval-Manager', 'ITUniverse', 'ITUniverseMobile', 'S3MediaManager', 'SteamRandomLauncher', 
 		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager'
     ];
     
@@ -120,36 +206,34 @@ function loadProject(projectId) {
                 
             case "ITUniverse":
                 content = `
-                    <h2>Вселенная IT</h2>
-                    <p><strong>Стек:</strong> JavaScript, Node.js, Docusaurus 3 (React-based, SSR, SSG), Markdown/MDX, HTML, GitHub Pages, CSS.</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/it-knowledge-base" target="_blank">Репозиторий</a></p>
-                    <p><strong>Описание:</strong> Проект "Вселенная IT" — это реализация системной инженерной парадигмы в области технической документации и образовательных знаний. Его цель — построение единой, самосогласованной, верифицируемой и долговечной базы знаний по информационным технологиям, способной функционировать как независимый справочный стандарт, свободный от коммерческих, политических и временных ограничений.</p>
-                    <p>Я учился сам, программировал, анализировал, документировал и даже руководил. На всём моём пути сталкивался с отсутствием грамотной систематизации знаний, хотя меня учили системности очень, очень грамотные люди. Это привело к тому, что я решил всё же начать вести свой собственный проект с образовательной тематикой.</p>
-                    <p>"Вселенная IT" закрывает потребность в едином источнике верифицированных знаний, предоставляя:</p>
-                    <ul align="left">
-                        <li align="left">Единый контекст для всех уровней знаний — от базовой компьютерной грамотности до архитектурных паттернов распределённых систем;</li>
-                        <li align="left">Системную карту взаимосвязей: каждая статья явно указывает, на какие разделы она опирается (предпосылки), и какие темы развиваются на её основе (следствия);</li>
-                        <li align="left">Практико-ориентированную структуру: теоретические концепции всегда сопровождаются примерами архитектур, ссылками на спецификации, диаграммами потоков данных и управления, кейсами ошибок и их диагностики.</li>
+                    <h2>Вселенная IT — веб-энциклопедия</h2>
+                    <p><strong>Сайт:</strong> <a href="https://spirzen.ru/" target="_blank" rel="noopener">spirzen.ru</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/spirzen/it-knowledge-base" target="_blank" rel="noopener">it-knowledge-base</a></p>
+                    <p><strong>Стек:</strong> Docusaurus 3.10, React 19, TypeScript, MDX, Mermaid, live-codeblock, Prism, html2canvas + jsPDF, Node 20+, GitHub Actions → GitHub Pages.</p>
+                    <p><strong>Масштаб:</strong> 3000+ статей, 120+ интерактивных React-демо, 9 блоков энциклопедии, лаборатория, глоссарий, подборки, PDF-экспорт, «См. также», прогресс главы.</p>
+                    <p>Флагманский образовательный проект: единая верифицируемая модель IT-знаний с 2018 года (контент), публичный SSG-сайт — с 2025. Автор, методист и Lead Developer — я.</p>
+                    <p>Демо в статьях: терминал, Docker, SQL-тренажёры, Git, Kafka, RabbitMQ, нейросети, HTTP, ООП, CI/CD и др. Кастомный webpack chunk <code>demo-widgets</code> для производительности.</p>
+                    <p><a href="#" class="tab-switch" data-tab="it-book">Подробнее на вкладке «Вселенная IT» →</a></p>
+                    <p><img src="Resources/Screenshots/logoITU.png" alt="Вселенная IT"></p>
+                `;
+                break;
+
+            case "ITUniverseMobile":
+                content = `
+                    <h2>Вселенная IT — мобильное приложение</h2>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Spirzen/itu-mobile-app" target="_blank" rel="noopener">github.com/Spirzen/itu-mobile-app</a></p>
+                    <p><strong>Пакет:</strong> <code>ru.spirzen.ituniverse</code></p>
+                    <p><strong>APK:</strong> <a href="https://spirzen.ru/downloads/it-universe.apk" target="_blank" rel="noopener">Скачать с spirzen.ru</a></p>
+                    <p><strong>Стек:</strong> .NET MAUI 10, Shell, XAML, WebView, Preferences, локальный JSON-манифест поиска.</p>
+                    <p>Нативный клиент энциклопедии: каталог разделов, поиск (офлайн-манифест + sitemap онлайн), закладки, чтение статей через WebView с панелью навигации приложения.</p>
+                    <p><strong>Платформы:</strong> Android (основной), Windows, iOS, Mac Catalyst.</p>
+                    <ul>
+                        <li>Контент загружается с <a href="https://spirzen.ru/" target="_blank">spirzen.ru</a> (Docusaurus SPA);</li>
+                        <li>ArticleWebViewHelper — компактные стили чтения, скрытие дублирующей пагинации;</li>
+                        <li>Синхронизация стека «назад» с <code>window.location.pathname</code>;</li>
+                        <li>Индекс: <code>Resources/Raw/search-manifest.json</code>.</li>
                     </ul>
-                    <p>Проект реализован как полностью статический, самообслуживаемый документационный сайт, развёрнутый на открытой инфраструктуре. Архитектура строится вокруг модели жизненного цикла технической документации, включающей создание, верификацию, сборку, публикацию и долгосрочное хранение.</p>
-                    <p>Изначально я писал книгу, но в дальнейшем проект трансформировался в полноценный сайт.</p>
-                    <p>Я экспериментировал по разному - рассматривал Obsidian, MediaWiki, и много других платформ - но всё же самой гибкой и удобной оказался именно Docusaurus.</p>
-                    <p>Сборка и развёртывание проекта полностью автоматизированы с помощью GitHub Actions, при этом используется и ручной деплой при необходимости.</p>
-                    <p>В проекте применяется модель иерархического усвоения, заимствованная из когнитивной психологии и адаптированная для технического контента:</p>
-                    <ul align="left">
-                        <li align="left">Основы — фундаментальные понятия (информация, программа, интерфейс, сеть);</li>
-                        <li align="left">Система и сеть — аппаратура, ОС, сетевой стек, администрирование;</li>
-                        <li align="left">Данные и разметка — модели данных, СУБД (SQL/NoSQL), форматы (XML/JSON/Markdown/HTML);</li>
-                        <li align="left">Код и разработка — инженерное мышление: парадигмы, архитектура, память, отладка;</li>
-                        <li align="left">Искусственный интеллект, машинное обучение, работа с агентами и LLM;</li>
-                        <li align="left">Языки — 15+ языков с акцентом на сравнительный анализ и переносимость знаний;</li>
-                        <li align="left">Проект — жизненный цикл ПО, управление требованиями, документация (в т.ч. по ГОСТ), анализ и тестирование;</li>
-                        <li align="left">Инфраструктура и безопасность — DevOps, облака, контейнеры, ИБ как сквозной атрибут;</li>
-                        <li align="left">Спин-офф — смежные дисциплины: исторические фигуры, игры, блокчейн, ИИ, этика.</li>
-                    </ul>
-                    <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/logoITU.png" alt="Скриншот проекта"></p>
-                    <p>Бесплатно, без рекламы, без партнёров.</p>
+                    <p>Репозиторий: <a href="https://github.com/Spirzen/itu-mobile-app" target="_blank" rel="noopener">itu-mobile-app</a> — часть экосистемы «Вселенная IT».</p>
                 `;
                 break;
 
