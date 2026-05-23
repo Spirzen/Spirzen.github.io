@@ -732,6 +732,16 @@ hr {
   color: var(--primary);
 }
 
+.project-list li.project-flagship {
+  font-weight: 600;
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
+  padding-left: 10px;
+  margin: 4px 0 4px 2px;
+  background: var(--primary-soft);
+  border-radius: 0 6px 6px 0;
+}
+
 .project-details {
   flex: 1;
   min-width: 0;
@@ -741,11 +751,79 @@ hr {
   background: var(--bg-elevated);
 }
 
-.project-details img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-top: 12px;
+.project-screenshot {
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.project-screenshot__frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  max-height: min(560px, 58vh);
+  padding: clamp(12px, 2.5vw, 20px);
+  background:
+    linear-gradient(145deg, var(--surface) 0%, var(--bg-elevated) 55%, var(--surface) 100%);
   border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.project-screenshot__frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] .project-screenshot__frame::before {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.project-screenshot__frame img {
+  display: block;
+  max-width: 100%;
+  max-height: min(520px, 52vh);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(28, 27, 34, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="dark"] .project-screenshot__frame img {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
+}
+
+.project-screenshot__frame:hover img {
+  transform: scale(1.01);
+  box-shadow: 0 14px 36px rgba(28, 27, 34, 0.18);
+}
+
+[data-theme="dark"] .project-screenshot__frame:hover img {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-screenshot__caption {
+  margin: 10px 4px 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.project-details > p:has(+ figure.project-screenshot) strong:only-child {
+  display: block;
+  margin-bottom: -4px;
 }
 
 /* Interactive diagrams */
@@ -1037,6 +1115,15 @@ code {
     width: 100%;
     max-width: none;
     max-height: none;
+  }
+
+  .project-screenshot__frame {
+    max-height: min(420px, 45vh);
+    padding: 10px;
+  }
+
+  .project-screenshot__frame img {
+    max-height: min(380px, 40vh);
   }
 
   .itu-cta-row {

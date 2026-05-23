@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Тагиров Тимур — Fullstack Developer, системный аналитик, автор энциклопедии «Вселенная IT» (spirzen.ru) и 30+ pet-проектов.">
+	<meta name="description" content="Тагиров Тимур — Fullstack Developer, системный аналитик, автор энциклопедии «Вселенная IT» (spirzen.ru) и 40+ pet-проектов: интеграционные хабы, визуализаторы схем, генераторы кода.">
 	<title>Тагиров Тимур | Fullstack Developer & Content Architect</title>
 	<script>
 		(function () {
@@ -56,27 +56,31 @@
 					<div class="tech-stack-grid">
 						<div class="tech-group">
 							<strong>Core Development</strong>
-							<span>C# / .NET 10 / ASP.NET, Java / Spring, JavaScript / TypeScript, Python, Go, PHP</span>
+							<span>C# / .NET 8–10 / ASP.NET Core, Blazor, Java / Spring, TypeScript, Python 3.11+, Go, PHP</span>
 						</div>
 						<div class="tech-group">
-							<strong>Frontend & Docs</strong>
-							<span>React 19, Docusaurus 3, MDX, WPF, WinForms, MAUI, Razor, Bootstrap</span>
+							<strong>Frontend & Desktop UI</strong>
+							<span>React 19, Vite 6, Docusaurus 3, Avalonia 12, Electron, Konva, WPF, WinForms, MAUI, Razor</span>
 						</div>
 						<div class="tech-group">
 							<strong>Data & Backend</strong>
-							<span>PostgreSQL, MS SQL, Oracle, MongoDB, ElasticSearch, Redis, MinIO/S3, SQLite</span>
+							<span>PostgreSQL, MS SQL, Oracle, MySQL, MongoDB, ElasticSearch, Redis, MinIO/S3, SQLite, FastAPI, EF Core</span>
+						</div>
+						<div class="tech-group">
+							<strong>Architecture & Visualization</strong>
+							<span>React Flow, Dagre, ER-диаграммы, графы зависимостей, UML, BPMN, Mermaid, OpenAPI</span>
 						</div>
 						<div class="tech-group">
 							<strong>Enterprise & BPM</strong>
-							<span>BPMSoft (Creatio), ELMA365, Camunda 7, REST/SOAP, MediaWiki, ГОСТ-документация</span>
+							<span>BPMSoft (Creatio), ELMA365, Camunda 7, Quartz, YARP, REST/SOAP, MediaWiki, ГОСТ</span>
 						</div>
 						<div class="tech-group">
-							<strong>DevOps & Infrastructure</strong>
-							<span>Docker, Kubernetes, GitHub Actions, Linux, CI/CD, GitHub Pages</span>
+							<strong>DevOps & Observability</strong>
+							<span>Docker, Kubernetes, Helm, Prometheus, OpenTelemetry, GitHub Actions, CI/CD, GitHub Pages</span>
 						</div>
 						<div class="tech-group">
 							<strong>AI & Knowledge</strong>
-							<span>LLM Agents, LM Studio, VS Code Extensions, Obsidian, техническое письмо</span>
+							<span>LLM Agents, LM Studio, VS Code Extensions, Obsidian, техническое письмо, MDX</span>
 						</div>
 					</div>
 
@@ -115,6 +119,7 @@
 								<li><strong>100% перевод</strong> градостроительной документации региона в электронный формат.</li>
 								<li>Администрирование корпоративных и государственных БД и информационных систем.</li>
 								<li>Интеграция AI-компонентов и LLM в корпоративные процессы.</li>
+								<li>Собственные инструменты: <strong>AllStarsMVP</strong>, <strong>ArchiStyler</strong>, визуализаторы БД и зависимостей, валидатор примеров кода.</li>
 							</ul>
 						</div>
 					</div>
@@ -243,7 +248,7 @@
 		<!-- ПРОЕКТЫ -->
 		<div id="projects" class="tab-pane fade-in">
 			<h1 align="center">Мои проекты</h1>
-			<p>Это пет-проекты, демонстрирующие владение различными технологиями. Коммерческие проекты (детали информационных систем, банковское ПО) скрыты по соображениям конфиденциальности.</p>
+			<p>Это пет-проекты, демонстрирующие владение различными технологиями — от интеграционных хабов и визуализаторов схем до десктопных утилит. После государственных проектов выделены флагманские инструменты последней волны. Коммерческие системы скрыты по соображениям конфиденциальности.</p>
 			
 			<div class="project-layout">
 				<div class="project-list">
@@ -251,6 +256,13 @@
 						<li onclick="loadProject('ITUniverse')" class="project-featured">📚 Вселенная IT (сайт)</li>
 						<li onclick="loadProject('ITUniverseMobile')" class="project-featured">📱 Вселенная IT (MAUI)</li>
 						<li onclick="loadProject('Government')">🏛 Государственные проекты</li>
+						<li onclick="loadProject('AllStarsMVP')" class="project-flagship">⭐ AllStarsMVP — интеграционный хаб</li>
+						<li onclick="loadProject('ArchiStyler')" class="project-flagship">🏗 ArchiStyler — архитектура → код</li>
+						<li onclick="loadProject('DependencyGraphSentinel')" class="project-flagship">🛡 Dependency Graph Sentinel</li>
+						<li onclick="loadProject('DatabaseSchemaViewer')" class="project-flagship">🗄 Database Schema Viewer</li>
+						<li onclick="loadProject('CodeExampleValidator')" class="project-flagship">✅ Code Example Validator</li>
+						<li onclick="loadProject('PATHManager')" class="project-flagship">🛤 PATH Manager</li>
+						<li onclick="loadProject('SchemaMaker')" class="project-flagship">📐 Schema Maker</li>
 						<li onclick="loadProject('SimpleCRM')">🪪 Простая CRM-система</li>
 						<li onclick="loadProject('Camunda-Approval-Manager')">📎 Camunda-Approval-Manager</li>
 						<li onclick="loadProject('S3MediaManager')"> 📁 S3 Media Manager</li>
@@ -259,6 +271,7 @@
 						<li onclick="loadProject('WordTrainer')">🎖 WordTrainer</li>
 						<li onclick="loadProject('CSVJSONConverter')">🧩 CSV-JSON конвертер</li>
 						<li onclick="loadProject('SQLGenerator')">🔧 Генератор SQL-запросов</li>
+						<li onclick="loadProject('Excel2SQL')">📊 Excel2SQL</li>
 						<li onclick="loadProject('XMLValidator')">📄 XML Validator</li>
 						<li onclick="loadProject('CatalogueWebApp')">🛒 Система управления каталогом</li>
 						<li onclick="loadProject('DockerMiniManager')">⚙️ Docker Mini Manager</li>

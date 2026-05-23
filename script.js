@@ -178,6 +178,38 @@ function switchTab(tabId) {
     }
 }
 
+function enhanceProjectScreenshots(container) {
+    if (!container) return;
+
+    container.querySelectorAll('p > img').forEach((img) => {
+        if (img.closest('.project-screenshot')) return;
+
+        const parent = img.parentElement;
+        if (!parent) return;
+
+        const figure = document.createElement('figure');
+        figure.className = 'project-screenshot';
+
+        const frame = document.createElement('div');
+        frame.className = 'project-screenshot__frame';
+
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        frame.appendChild(img);
+        figure.appendChild(frame);
+
+        const alt = (img.getAttribute('alt') || '').trim();
+        if (alt && !/^скриншот/i.test(alt)) {
+            const caption = document.createElement('figcaption');
+            caption.className = 'project-screenshot__caption';
+            caption.textContent = alt;
+            figure.appendChild(caption);
+        }
+
+        parent.replaceWith(figure);
+    });
+}
+
 function loadProject(projectId) {
     const details = document.getElementById("projectDetails");
     let content = "";
@@ -189,7 +221,9 @@ function loadProject(projectId) {
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
         'Camunda-Approval-Manager', 'ITUniverse', 'ITUniverseMobile', 'S3MediaManager', 'SteamRandomLauncher', 
-		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager', 'Government'
+		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager', 'Government',
+        'AllStarsMVP', 'ArchiStyler', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
+        'CodeExampleValidator', 'PATHManager', 'SchemaMaker', 'Excel2SQL'
     ];
     
     if (!knownProjects.includes(projectId)) {
@@ -235,6 +269,120 @@ function loadProject(projectId) {
 					<p>Ранее - Стройпортал, ныне - портал центра цифровой трансформации строительной отрасли Республики Башкортостан.</p>
 					<p>Функционал включает калькуляторы парковочных мест, процедур в строительстве, горячие ссылки с подробным сопровождением для оказания услуг.</p>
 					<p>Предназначен для обеспечения методологической и экспертной поддержки участников строительной и градостроительной деятельности.</p>
+                `;
+                break;
+
+            case "AllStarsMVP":
+                content = `
+                    <h2>AllStarsMVP — интеграционный микросервис</h2>
+                    <p><strong>Стек:</strong> C#, ASP.NET Core 9, Blazor Server, EF Core, PostgreSQL, Quartz, YARP, JWT/RBAC, Docker, Kubernetes/Helm, Prometheus, OpenTelemetry, RabbitMQ/Kafka (модули)</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/AllStarsMVP" target="_blank" rel="noopener">https://github.com/Spirzen/AllStarsMVP</a></p>
+                    <p><strong>Описание:</strong> Универсальный интеграционный хаб для внедрения BPM, CRM и ERP: ELMA365, BPMSoft/Creatio, 1С, SAP и любых REST-систем. Один сервис закрывает типовой контур — webhooks, исходящие API, проверка БД, Test Bench, очередь с retry, секреты, метрики и экспорт конфигурации в Git.</p>
+                    <p>Модульная сборка: под заказчика подключаются только нужные расширения (database, messaging, secrets, observability, storage, mock).</p>
+                    <ul align="left">
+                        <li align="left">Админка Blazor: dashboard, коннекторы, webhooks, jobs, audit, встроенная справка;</li>
+                        <li align="left">Очередь задач с приоритетами и экспоненциальным retry;</li>
+                        <li align="left">GitOps export/import JSON и YAML, health/metrics, SSO OIDC (Keycloak/Azure AD);</li>
+                        <li align="left">Docker Compose и Helm chart для production.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/AllStarsMVP.png" alt="AllStarsMVP"></p>
+                `;
+                break;
+
+            case "ArchiStyler":
+                content = `
+                    <h2>ArchiStyler — от диаграммы к коду</h2>
+                    <p><strong>Стек:</strong> C#, .NET 8, Avalonia 12, CommunityToolkit.Mvvm, System.Text.Json; генерация C# 12 и Java 17</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/ArchiStyler" target="_blank" rel="noopener">https://github.com/Spirzen/ArchiStyler</a></p>
+                    <p><strong>Описание:</strong> Настольный визуальный проектировщик архитектуры: UML-подобная диаграмма классов, 60+ ролей (DAO, Service, Repository…), шаблоны MVP/MVVM/GoF/Repository из JSON, превью кода и обратный разбор в модель.</p>
+                    <ul align="left">
+                        <li align="left">Drag-and-drop на холсте, папки, 8 типов связей (inherits, implements, uses…);</li>
+                        <li align="left">Экспорт <code>.cs</code>/<code>.java</code> + <code>.csproj</code>/<code>pom.xml</code>;</li>
+                        <li align="left">Тёмная неоновая и светлая темы, сохранение <code>.archistyler.json</code>.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/ArchiStyler.png" alt="ArchiStyler"></p>
+                `;
+                break;
+
+            case "DependencyGraphSentinel":
+                content = `
+                    <h2>Dependency Graph Sentinel</h2>
+                    <p><strong>Стек:</strong> Python 3.11+, FastAPI, Pydantic; React 18, TypeScript, Vite, @xyflow/react, Dagre</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Dependency-Graph-Sentinel" target="_blank" rel="noopener">https://github.com/Spirzen/Dependency-Graph-Sentinel</a></p>
+                    <p><strong>Описание:</strong> Визуальный разведчик зависимостей для монореп и solution: .NET, Maven/Gradle, npm workspaces, Python. Три уровня схемы — модули, файлы, классы — плюс поиск циклов, нарушений слоёв UI→BLL→DAL, CVE, «объявлено vs используется».</p>
+                    <ul align="left">
+                        <li align="left">Интерактивный граф с карточкой сущности (поля, методы, связи);</li>
+                        <li align="left">CLI и REST API <code>/api/analyze</code>, встроенные демо с намеренными нарушениями;</li>
+                        <li align="left">Группировка папок и Dagre-раскладка для крупных репозиториев.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Dependency Graph Sentinel.png" alt="Dependency Graph Sentinel"></p>
+                `;
+                break;
+
+            case "DatabaseSchemaViewer":
+                content = `
+                    <h2>Database Schema Viewer</h2>
+                    <p><strong>Стек:</strong> Python 3.10+, FastAPI, Uvicorn, psycopg2, PyMySQL, pyodbc, oracledb; React 19, TypeScript, Vite 6, React Flow, dagre, html-to-image</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Database-Schema-Viewer" target="_blank" rel="noopener">https://github.com/Spirzen/Database-Schema-Viewer</a></p>
+                    <p><strong>Описание:</strong> Локальный анализатор и визуализатор схем БД: SQLite, PostgreSQL, MySQL, MS SQL Server, Oracle. ER-диаграмма со связями FK, поиск по таблицам/столбцам, карточка таблицы, экспорт PNG — без тяжёлых IDE.</p>
+                    <ul align="left">
+                        <li align="left">Автообнаружение локальных серверов, демо SQLite из коробки;</li>
+                        <li align="left">Оптимизация для 1000+ таблиц (компактный режим, виртуализация);</li>
+                        <li align="left">Тёмная/светлая тема, данные не уходят в облако.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Database Schema Viewer.png" alt="Database Schema Viewer"></p>
+                `;
+                break;
+
+            case "CodeExampleValidator":
+                content = `
+                    <h2>Code Example Validator</h2>
+                    <p><strong>Стек:</strong> Python 3.10+, FastAPI, Uvicorn, Pydantic; HTML/CSS/vanilla JS</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/CodeExampleValidator" target="_blank" rel="noopener">https://github.com/Spirzen/CodeExampleValidator</a></p>
+                    <p><strong>Описание:</strong> Локальный валидатор фрагментов кода из статей и документации: вставили snippet — получили отчёт о компиляции, предупреждениях и выводе программы. Поддержка Python, C#, Java, JavaScript (Node), PHP во временной изолированной папке.</p>
+                    <ul align="left">
+                        <li align="left">Умная обёртка тела <code>Main</code> для C# и префикс <code>&lt;?php</code> для PHP;</li>
+                        <li align="left">Пошаговый отчёт ✓/✗, таймауты, REST API и Swagger;</li>
+                        <li align="left">Всё на localhost — удобно при написании «Вселенной IT» и курсов.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Code Example Validator.png" alt="Code Example Validator"></p>
+                `;
+                break;
+
+            case "PATHManager":
+                content = `
+                    <h2>PATH Manager</h2>
+                    <p><strong>Стек:</strong> Electron 36, React 19, TypeScript, Vite 6; Windows Registry (<code>reg.exe</code>)</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/PATHManager" target="_blank" rel="noopener">https://github.com/Spirzen/PATHManager</a></p>
+                    <p><strong>Описание:</strong> Настольное приложение для Windows: управление PATH и пользовательскими переменными окружения через понятный UI вместо <code>setx</code> и «Параметров системы».</p>
+                    <ul align="left">
+                        <li align="left">Умные названия (Python, Git, Java, .NET…) и подсказка команды проверки;</li>
+                        <li align="left">Валидация дубликатов, недопустимых символов, защита системных имён;</li>
+                        <li align="left">Пастельная тема, метки путей, NSIS-установщик.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/PATHManager.png" alt="PATH Manager"></p>
+                `;
+                break;
+
+            case "SchemaMaker":
+                content = `
+                    <h2>Schema Maker</h2>
+                    <p><strong>Стек:</strong> React 19, TypeScript, Vite 6, Konva, react-konva, jsPDF, uuid</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/SchemaMaker" target="_blank" rel="noopener">https://github.com/Spirzen/SchemaMaker</a></p>
+                    <p><strong>Описание:</strong> Лёгкий веб-строитель схем и блок-диаграмм: фигуры, связи с 8 точками крепления, рисование от руки, комментарии, экспорт PNG/JPG/PDF и сохранение проекта в JSON — без Visio и жёстких BPMN-нотаций.</p>
+                    <ul align="left">
+                        <li align="left">Панорама, масштаб 20–300%, рамка выделения, Transformer;</li>
+                        <li align="left">34 пастельных заливки, DM Sans, локальное хранение в браузере;</li>
+                        <li align="left">Идеален для архитектурных эскизов и быстрых процессов.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Schema Maker.png" alt="Schema Maker"></p>
                 `;
                 break;
                 
@@ -392,18 +540,18 @@ function loadProject(projectId) {
             case "WordTrainer":
                 content = `
                     <h2>WordTrainer</h2>
-                    <p><strong>Стек:</strong> C#, WPF, SQLite</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/WordTrainer" target="_blank">https://github.com/Spirzen/WordTrainer</a></p>
-                    <p><strong>Описание:</strong> Писал для жены, когда ей понадобилось закреплять словарный запас. WPF-приложение, которое позволяет учить слова на английском языке. Приложение подбирает случайное слово и пользователь может написать перевод.   </p>
+                    <p><strong>Стек:</strong> C#, .NET 8, WPF, SQLite, MVVM</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/WordTrainer" target="_blank" rel="noopener">https://github.com/Spirzen/WordTrainer</a></p>
+                    <p><strong>Описание:</strong> Обновлённый тренажёр английской лексики: случайные слова, проверка перевода, уровни сложности и режимы en↔ru. Удобный интерфейс для ежедневной практики.</p>
                     <p>Основные возможности</p>
                     <ul align="left">
-                        <li align="left">валидация - проверка на корректность перевода, введённого пользователем;</li>
-                        <li align="left">возможность показать перевод;</li>
-                        <li align="left">выбор уровня сложности (низкий, средний, высокий); </li>
-                        <li align="left">выбор режима работы (англо-русский или русско-английский).</li>
+                        <li align="left">валидация перевода и подсказка правильного ответа;</li>
+                        <li align="left">уровни сложности (низкий, средний, высокий);</li>
+                        <li align="left">режимы англо-русский и русско-английский;</li>
+                        <li align="left">локальная база слов в SQLite.</li>
                     </ul>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/WordTrainer.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/WordTrainer2.png" alt="WordTrainer"></p>
                 `;
                 break;
 
@@ -428,18 +576,34 @@ function loadProject(projectId) {
             case "SQLGenerator":
                 content = `
                     <h2>SQL Generator</h2>
-                    <p><strong>Стек:</strong> C#, WPF, MVVM, XAML</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/SQL-Generator" target="_blank">https://github.com/Spirzen/SQL-Generator</a></p>
-                    <p><strong>Описание:</strong> Порой писать запрос лень, и можно потыкать в "кнопочки", и получить готовый. Вот и появился инструмент для генерации SQL-запросов с использованием графического интерфейса. Проект позволяет пользователям создавать запросы типа SELECT, INSERT, UPDATE, DELETE без необходимости вручную писать SQL-код. Это особенно полезно для начинающих разработчиков, аналитиков или тех, кто хочет быстро протестировать свои запросы.</p>
+                    <p><strong>Стек:</strong> C#, .NET 8, WPF, MVVM, XAML</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/SQL-Generator" target="_blank" rel="noopener">https://github.com/Spirzen/SQL-Generator</a></p>
+                    <p><strong>Описание:</strong> Визуальный конструктор SQL: SELECT, INSERT, UPDATE, DELETE с JOIN и WHERE без ручного набора синтаксиса. Обновлённый UI для быстрого прототипирования запросов аналитиками и разработчиками.</p>
                     <p>Основные возможности</p>
                     <ul align="left">
-                        <li align="left">поддержка SELECT, INSERT, UPDATE, DELETE;</li>
-                        <li align="left">поддержка JOIN (INNER, LEFT, RIGHT, FULL);</li>
-                        <li align="left">фильтрация данных (WHERE с выбором операторов =, <>, LIKE, IS NULL и др);</li>
-                        <li align="left">возможность скопировать запрос в буфер обмена</li>
+                        <li align="left">SELECT, INSERT, UPDATE, DELETE;</li>
+                        <li align="left">JOIN (INNER, LEFT, RIGHT, FULL);</li>
+                        <li align="left">WHERE с операторами =, &lt;&gt;, LIKE, IS NULL и др.;</li>
+                        <li align="left">копирование готового запроса в буфер обмена.</li>
                     </ul>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/SQLGenerator.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/SQL Generator2.png" alt="SQL Generator"></p>
+                `;
+                break;
+
+            case "Excel2SQL":
+                content = `
+                    <h2>Excel2SQL</h2>
+                    <p><strong>Стек:</strong> C#, .NET 8, WPF, ClosedXML</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Excel2SQL" target="_blank" rel="noopener">https://github.com/Spirzen/Excel2SQL</a></p>
+                    <p><strong>Описание:</strong> Утилита для преобразования данных из Excel (.xlsx) в SQL-скрипты INSERT: загрузите таблицу, укажите имя целевой таблицы — получите готовый batch для наполнения БД.</p>
+                    <ul align="left">
+                        <li align="left">чтение листов через ClosedXML;</li>
+                        <li align="left">настройка имён столбцов и экранирование значений;</li>
+                        <li align="left">удобно для миграций, тестовых данных и прототипов.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Excel2SQL2.png" alt="Excel2SQL"></p>
                 `;
                 break;
 
@@ -456,13 +620,13 @@ function loadProject(projectId) {
 
             case "DocGenerator":
                 content = `
-                    <h2>Генератор технической документации Markdown - PDF</h2>
-                    <p><strong>Стек:</strong> C#, MAUI, Markdig, HtmlToPdf, Handlebars, YAML, HTML</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/DocGenerator" target="_blank">https://github.com/Spirzen/DocGenerator</a></p>
-                    <p><strong>Описание:</strong> Утилита для преобразования Markdown-файлов в PDF-документы. Данное приложение берёт Markdown-файлы +YAML-шаблоны и генерирует красивый PDF/HTML с оглавлением, подсветкой кода, темами.</p>
-                    <p>Программа позволяет загружать файлы с расширением .md, .yaml, выбирать тему и формат выходного файла, а также выбирать место сохранения результата.</p>
+                    <h2>Генератор технической документации Markdown → PDF</h2>
+                    <p><strong>Стек:</strong> C#, .NET MAUI 9, Markdig, iText pdfHTML, Handlebars.Net, YamlDotNet; Windows, Android, iOS, Mac Catalyst</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/DocGenerator" target="_blank" rel="noopener">https://github.com/Spirzen/DocGenerator</a></p>
+                    <p><strong>Описание:</strong> Кроссплатформенный конвертер Markdown в PDF/HTML с YAML-шаблонами Handlebars: оглавление, подсветка кода, выбор темы и каталога сохранения. Обновлено на .NET 9 MAUI.</p>
+                    <p>Программа загружает <code>.md</code> и <code>.yaml</code>, собирает документ по шаблону и экспортирует результат для технической документации и ГОСТ-материалов.</p>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/DocGenerator.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/DocGenerator.png" alt="DocGenerator"></p>
                 `;
                 break;
 
@@ -481,17 +645,17 @@ function loadProject(projectId) {
             case "IndianFilmManager":
                 content = `
                     <h2>Indian Film Manager</h2>
-                    <p><strong>Стек:</strong> C#, ASP.NET Core, Entity Framework Core, SQLite, HTML, CSS, JavaScript, Bootstrap, jQuery (для работы с автодополнением), LINQ, Razor Pages, AJAX</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Indian-Film-Manager" target="_blank">https://github.com/Spirzen/Indian-Film-Manager</a></p>
-                    <p><strong>Описание:</strong> Писал для жены, когда хотели попробовать управлять коллекцией индийского кино в интерфейсе. Indian Film Manager — это веб-приложение для управления данными о фильмах, актёрах и жанрах. Проект создан для удобного хранения, поиска и редактирования информации о фильмах, а также связанных с ними данных. ASP.NET, ORM - Entity Framework Core.</p>
+                    <p><strong>Стек:</strong> C#, ASP.NET Core, Entity Framework Core, SQLite, Razor Pages, Bootstrap, jQuery (autocomplete), LINQ, AJAX</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Indian-Film-Manager" target="_blank" rel="noopener">https://github.com/Spirzen/Indian-Film-Manager</a></p>
+                    <p><strong>Описание:</strong> Веб-каталог индийского кино: фильмы, актёры, жанры, рейтинги и связи many-to-many. Обновлённый интерфейс для удобного поиска и редактирования коллекции.</p>
                     <p>Основные возможности</p>
                     <ul align="left">
-                        <li align="left">управление фильмами - добавление, редактирование, удаление, указание года выпуска, рейтинга, актёров и жанров для каждого фильма;</li>
-                        <li align="left">управление актёрамии - добавление, редактирование, удаление актёров;</li>
-                        <li align="left">управление жанрами, привязка к фильмам.</li>
+                        <li align="left">CRUD фильмов с годом, рейтингом, актёрами и жанрами;</li>
+                        <li align="left">справочники актёров и жанров;</li>
+                        <li align="left">автодополнение и фильтрация в UI.</li>
                     </ul>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/IndianFimManager.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/Indian Film Manager2.png" alt="Indian Film Manager"></p>
                 `;
                 break;
 
@@ -518,30 +682,28 @@ function loadProject(projectId) {
             case "QRGenerator":
                 content = `
                     <h2>Генератор QR-кодов</h2>
-                    <p><strong>Стек:</strong> C#, ASP.NET, ZXing.Net (библиотека для генерации QR-кодов), HTML, CSS.</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/QR-Generator.git" target="_blank">https://github.com/Spirzen/QR-Generator.git</a></p>
-                    <p><strong>Описание:</strong> Всегда хотелось сделать свой генератор QR. Веб-приложение на ASP.NET Core, которое позволяет генерировать QR-коды из текста или ссылок. Приложение предоставляет удобный интерфейс для ввода данных, отображения сгенерированного QR-кода и его сохранения в формате PNG.</p>
-                    <p>Есть и консольный вариант приложения.</p>
+                    <p><strong>Стек:</strong> C#, ASP.NET Core, ZXing.Net, HTML, CSS</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/QR-Generator" target="_blank" rel="noopener">https://github.com/Spirzen/QR-Generator</a></p>
+                    <p><strong>Описание:</strong> Веб-генератор QR из текста или URL с превью и сохранением PNG. Обновлённый UI; доступен и консольный вариант.</p>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/QR Generator.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/QR Generator2.png" alt="QR Generator"></p>
                 `;
                 break;
 
             case "GameLibraryManager":
                 content = `
                     <h2>Game Library Manager</h2>
-                    <p><strong>Стек:</strong> C#, .NET, ASP.NET Razor Pages, Entity Framework Core, SQLite, HTML, CSS.</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Game-Library-Manager" target="_blank">https://github.com/Spirzen/Game-Library-Manager</a></p>
-                    <p><strong>Описание:</strong> Веб-приложение на базе ASP.NET Core, предназначенное для управления библиотекой игр. Пользователи могут добавлять, редактировать, удалять и просматривать информацию о играх через удобный пользовательский интерфейс (выполнять CRUD-операции с использованием Entity Framework Core). </p>
+                    <p><strong>Стек:</strong> C#, ASP.NET Core Razor Pages, Entity Framework Core, SQLite, HTML, CSS</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Game-Library-Manager" target="_blank" rel="noopener">github.com/Spirzen/Game-Library-Manager</a></p>
+                    <p><strong>Описание:</strong> Веб-библиотека игр: CRUD по названию, жанру, году, разработчику и платформам. Обновлённый каталог с удобной таблицей и формами редактирования.</p>
                     <p>Основные возможности</p>
                     <ul align="left">
-                        <li align="left">добавление игр с указанием названия, жанра, года, разработчика и платформ;</li>
-                        <li align="left">редактирование путём обновления данных существующих игр;</li>
-                        <li align="left">удаление игр из библиотеки;</li>
-                        <li align="left">просмотр списка игр в виде таблицы.</li>
+                        <li align="left">добавление, редактирование и удаление записей;</li>
+                        <li align="left">фильтрация и просмотр коллекции;</li>
+                        <li align="left">хранение в SQLite через EF Core.</li>
                     </ul>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/Game_Library_Manager.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/GameLibraryManager2.png" alt="Game Library Manager"></p>
                 `;
                 break;
 
@@ -583,12 +745,12 @@ function loadProject(projectId) {
 
             case "MiniBrowser":
                 content = `
-                    <h2>Мини-браузер</h2>
-                    <p><strong>Стек:</strong> C#, Windows Forms, WebView2, HTTPS</p>
-                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Browser" target="_blank">https://github.com/Spirzen/Browser</a></p>
-                    <p><strong>Описание:</strong> Небольшой браузер на WebView2, с поддержкой навигации и перехода по HTTPS-ссылкам, с использованием паттерна MVVM (Model-View-ViewModel). Практика разбиения кода по папкам и файлам, а также работа с Windows Forms</p>
+                    <h2>Portfolio Browser — мини-браузер</h2>
+                    <p><strong>Стек:</strong> C#, .NET 8, Windows Forms, Microsoft WebView2, HTTPS</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Browser" target="_blank" rel="noopener">https://github.com/Spirzen/Browser</a></p>
+                    <p><strong>Описание:</strong> Компактный десктоп-браузер на WebView2: адресная строка, назад/вперёд, обновление. Обновлён на .NET 8 с аккуратной структурой проекта (MVVM-подход к UI).</p>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/Browser.png" alt="Скриншот проекта"></p>
+                    <p><img src="Resources/Screenshots/Portfolio Browser2.png" alt="Portfolio Browser"></p>
                 `;
                 break;
             
@@ -760,4 +922,5 @@ function loadProject(projectId) {
     }
 
     details.innerHTML = content;
+    enhanceProjectScreenshots(details);
 }
