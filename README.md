@@ -52,6 +52,13 @@ npx serve .
 | WordTrainer | https://github.com/Spirzen/WordTrainer |
 | Indian Film Manager | https://github.com/Spirzen/Indian-Film-Manager |
 
+### Игры
+
+| Проект | Репозиторий |
+|--------|-------------|
+| Pythonablo | https://github.com/Spirzen/Pythonablo |
+| Simple Survivors | https://github.com/Spirzen/Simple-Survivors |
+
 ## Ресурсы
 
 - `Resources/Photo/profile.jpg` — фото

@@ -215,7 +215,7 @@ function loadProject(projectId) {
     let content = "";
     
     const knownProjects = [
-        'InProgress', 'JPGPDF', 'DockerfileGenerator', 'Budman', 'SimpleSurvivors', 
+        'InProgress', 'JPGPDF', 'DockerfileGenerator', 'Budman', 'SimpleSurvivors', 'Pythonablo', 
         'SimpleCRM', 'CurConverter', 'WordTrainer', 'CSVJSONConverter', 'SQLGenerator', 
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
@@ -516,6 +516,25 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/SimpleSurvivors.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+
+            case "Pythonablo":
+                content = `
+                    <h2>Pythonablo — Diabloid ARPG</h2>
+                    <p><strong>Стек:</strong> Python 3.10+, Pygame 2.5+, JSON-данные, процедурная генерация карт и звука, EventBus, MIT</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/Pythonablo" target="_blank" rel="noopener">https://github.com/Spirzen/Pythonablo</a></p>
+                    <p><strong>Описание:</strong> Однопользовательская 2D isometric ARPG в духе Diablo — без готового движка, на чистом Python и Pygame. Исследуйте процедурные подземелья, собирайте лут с аффиксами и сетами, прокачивайте пассивные навыки и активные умения, сражайтесь с ордами монстров. Четыре режима (классика, арена, арена с боссами, скорость) и три уровня сложности; SFX и музыка генерируются кодом — внешние аудиофайлы не нужны.</p>
+                    <p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">изометрическая карта с процедурными комнатами и коридорами, кэш этажей;</li>
+                        <li align="left">ближний бой по курсору, рывок, удерживаемый «Вихрь», 4 активных умения с улучшениями;</li>
+                        <li align="left">лут normal / magic / rare / legendary / set, легендарки с заменой умений, Кузнец и Наставник;</li>
+                        <li align="left">события этажа, колонны-пилоны, NPC, боссы каждые 3 этажа;</li>
+                        <li align="left">автосохранение и ручное сохранение из паузы (<code>save_data/save.json</code>).</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Pythonablo.png" alt="Pythonablo"></p>
                 `;
                 break;
                 
