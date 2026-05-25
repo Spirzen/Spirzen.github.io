@@ -129,9 +129,24 @@ function initInteractiveDiagrams() {
     initEcoViz();
 }
 
+function initProjectList() {
+    const list = document.querySelector('.project-list ul');
+    if (!list || list.dataset.bound === '1') return;
+    list.dataset.bound = '1';
+
+    list.addEventListener('click', (e) => {
+        const li = e.target.closest('li[data-project-id]');
+        if (!li) return;
+        loadProject(li.dataset.projectId);
+        list.querySelectorAll('li[data-project-id]').forEach((item) => item.classList.remove('project-active'));
+        li.classList.add('project-active');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     applyTheme(getPreferredTheme());
     initInteractiveDiagrams();
+    initProjectList();
 
     document.getElementById('themeToggle')?.addEventListener('click', () => {
         const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -213,23 +228,25 @@ function enhanceProjectScreenshots(container) {
 function loadProject(projectId) {
     const details = document.getElementById("projectDetails");
     let content = "";
+    const id = String(projectId || '').trim();
     
     const knownProjects = [
         'InProgress', 'JPGPDF', 'DockerfileGenerator', 'Budman', 'SimpleSurvivors', 'Pythonablo', 
-        'SimpleCRM', 'CurConverter', 'WordTrainer', 'CSVJSONConverter', 'SQLGenerator', 
+        'SimpleCRM', 'CurConverter', 'WordTrainer', 'CSVJSONConverter',
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
         'Camunda-Approval-Manager', 'ITUniverse', 'ITUniverseMobile', 'S3MediaManager', 'SteamRandomLauncher', 
 		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager', 'Government',
-        'AllStarsMVP', 'ArchiStyler', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
-        'CodeExampleValidator', 'PATHManager', 'SchemaMaker', 'Excel2SQL'
+        'AllStarsMVP', 'ArchiStyler', 'ArchiStylerOnline', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
+        'CodeExampleValidator', 'PATHManager', 'SchemaMaker', 'SchemaMakerOnline',
+        'SQLGeneratorOnline', 'SQLGenerator', 'Excel2SQL'
     ];
     
-    if (!knownProjects.includes(projectId)) {
+    if (!knownProjects.includes(id)) {
         content = `<h2>Ошибка</h2><p>Проект с таким идентификатором не найден.</p>`;
     } else {
-        switch (projectId) {
+        switch (id) {
             case "InProgress":
                 content = `
                     <h2>В работе</h2>
@@ -303,6 +320,25 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/ArchiStyler.png" alt="ArchiStyler"></p>
+                `;
+                break;
+
+            case "ArchiStylerOnline":
+                content = `
+                    <h2>ArchiStyler Online</h2>
+                    <p><strong>Сайт:</strong> <a href="https://spirzen.github.io/ArchiStylerOnline/" target="_blank" rel="noopener">spirzen.github.io/ArchiStylerOnline</a></p>
+                    <p><strong>Стек:</strong> React 19, TypeScript, Vite 8, Zustand; GitHub Pages, GitHub Actions</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/ArchiStylerOnline" target="_blank" rel="noopener">https://github.com/Spirzen/ArchiStylerOnline</a></p>
+                    <p><strong>Описание:</strong> Онлайн-версия ArchiStyler — SPA для проектирования UML-подобных схем классов в браузере: ООП, GoF и архитектурные стили (MVP, MVVM, Repository). Порт с десктопного Avalonia-приложения; данные остаются на устройстве.</p>
+                    <ul align="left">
+                        <li align="left">Классы, папки-слои, связи (наследование, реализация, композиция, зависимости);</li>
+                        <li align="left">24+ шаблонов паттернов, превью кода C# и Java;</li>
+                        <li align="left">Тёмная неоновая и светлая темы, автосохранение в localStorage, импорт/экспорт <code>.archistyler.json</code>;</li>
+                        <li align="left">CSP, валидация JSON, без бэкенда и внешних API.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/ArchiStyler Online.png" alt="ArchiStyler Online"></p>
+                    <p><strong>Десктопная версия:</strong> <a href="#" onclick="loadProject('ArchiStyler'); return false;">ArchiStyler</a></p>
                 `;
                 break;
 
@@ -385,7 +421,25 @@ function loadProject(projectId) {
                     <p><img src="Resources/Screenshots/Schema Maker.png" alt="Schema Maker"></p>
                 `;
                 break;
-                
+
+            case "SchemaMakerOnline":
+                content = `
+                    <h2>Schema Maker Online</h2>
+                    <p><strong>Сайт:</strong> <a href="https://spirzen.github.io/SchemaMakerOnline/" target="_blank" rel="noopener">spirzen.github.io/SchemaMakerOnline</a></p>
+                    <p><strong>Стек:</strong> React 19, TypeScript, Vite 6, Konva, react-konva, jsPDF, uuid; GitHub Pages</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/SchemaMakerOnline" target="_blank" rel="noopener">https://github.com/Spirzen/SchemaMakerOnline</a></p>
+                    <p><strong>Описание:</strong> Онлайн-конструктор схем и блок-диаграмм в браузере — веб-порт Schema Maker. Фигуры, связи, рисование от руки, экспорт PNG/JPG/PDF и обмен проектами через JSON; черновик в localStorage, без сервера.</p>
+                    <ul align="left">
+                        <li align="left">Панорама, масштаб, пастельная палитра, комментарии;</li>
+                        <li align="left">Защищённый импорт JSON (лимиты размера, валидация типов и цветов);</li>
+                        <li align="left">CSP, санитизация имён файлов при экспорте.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/Schema Maker Online.png" alt="Schema Maker Online"></p>
+                    <p><strong>Десктопная версия:</strong> <a href="#" onclick="loadProject('SchemaMaker'); return false;">Schema Maker</a></p>
+                `;
+                break;
+
             case "ITUniverse":
                 content = `
                     <h2>Вселенная IT — веб-энциклопедия</h2>
@@ -607,6 +661,25 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/SQL Generator2.png" alt="SQL Generator"></p>
+                `;
+                break;
+
+            case "SQLGeneratorOnline":
+                content = `
+                    <h2>SQL Generator Online</h2>
+                    <p><strong>Сайт:</strong> <a href="https://spirzen.github.io/SQLGeneratorOnline/" target="_blank" rel="noopener">spirzen.github.io/SQLGeneratorOnline</a></p>
+                    <p><strong>Стек:</strong> React 19, TypeScript, Vite 6, SheetJS (xlsx); GitHub Pages, GitHub Actions</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/SQLGeneratorOnline" target="_blank" rel="noopener">https://github.com/Spirzen/SQLGeneratorOnline</a></p>
+                    <p><strong>Описание:</strong> Онлайн-конструктор SQL и импорт Excel/CSV в SQL — объединяет наработки десктопного SQL Generator, Excel2SQL и UX SqlTrainer. Вся обработка в браузере, данные не отправляются на сервер.</p>
+                    <ul align="left">
+                        <li align="left">SELECT, INSERT, UPDATE, DELETE; JOIN, WHERE, ORDER BY, LIMIT, DISTINCT;</li>
+                        <li align="left">Импорт .xlsx/.xls/.csv, диалекты PostgreSQL, MySQL, SQLite, SQL Server;</li>
+                        <li align="left">Режимы CREATE+INSERT или только INSERT, скачивание .sql;</li>
+                        <li align="left">CSP, лимиты файла и строк, санитизация имён и экранирование литералов.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/SQL Generator Online.png" alt="SQL Generator Online"></p>
+                    <p><strong>Десктопные версии:</strong> <a href="#" onclick="loadProject('SQLGenerator'); return false;">SQL Generator</a>, <a href="#" onclick="loadProject('Excel2SQL'); return false;">Excel2SQL</a></p>
                 `;
                 break;
 
@@ -936,7 +1009,7 @@ function loadProject(projectId) {
                 break;
                 
             default:
-                content = `<h2>${projectId}</h2><p>Описание проекта в разработке.</p>`;
+                content = `<h2>${id}</h2><p>Описание проекта в разработке.</p>`;
         }
     }
 

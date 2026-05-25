@@ -39,6 +39,9 @@ npx serve .
 | Code Example Validator | https://github.com/Spirzen/CodeExampleValidator |
 | PATH Manager | https://github.com/Spirzen/PATHManager |
 | Schema Maker | https://github.com/Spirzen/SchemaMaker |
+| ArchiStyler Online | https://github.com/Spirzen/ArchiStylerOnline · [демо](https://spirzen.github.io/ArchiStylerOnline/) |
+| Schema Maker Online | https://github.com/Spirzen/SchemaMakerOnline · [демо](https://spirzen.github.io/SchemaMakerOnline/) |
+| SQL Generator Online | https://github.com/Spirzen/SQLGeneratorOnline · [демо](https://spirzen.github.io/SQLGeneratorOnline/) |
 
 ### Обновлённые и смежные
 
