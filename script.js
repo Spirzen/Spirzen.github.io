@@ -232,7 +232,7 @@ function loadProject(projectId) {
     
     const knownProjects = [
         'InProgress', 'JPGPDF', 'DockerfileGenerator', 'Budman', 'SimpleSurvivors', 'Pythonablo', 
-        'SimpleCRM', 'CurConverter', 'WordTrainer', 'CSVJSONConverter',
+        'SimpleCRM', 'SampleSupport', 'CurConverter', 'WordTrainer', 'CSVJSONConverter',
         'CatalogueWebApp', 'DocGenerator', 'RandomMediaBot', 'IndianFilmManager', 
         'LogManager', 'QRGenerator', 'GameLibraryManager', 'GISOGDWiki', 'RandomGameLauncher', 
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
@@ -489,6 +489,26 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/SimpleCRM.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+
+            case "SampleSupport":
+                content = `
+                    <h2>Центр поддержки (sample.support)</h2>
+                    <p><strong>Стек:</strong> PHP 7.2+, MySQL 8 / MariaDB, MySQLi (prepared statements), Apache mod_rewrite, HTML5, CSS3, vanilla JavaScript, сессии</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/sample.support" target="_blank" rel="noopener">https://github.com/Spirzen/sample.support</a></p>
+                    <p><strong>Демо:</strong> <a href="http://sample.support/" target="_blank" rel="noopener">sample.support</a> (локальный OSPanel)</p>
+                    <p><strong>Описание:</strong> Демонстрационный пример сайта технической поддержки на «ванильном» PHP без фреймворка и Composer. Учебный хелпдеск с тикетами, базой знаний, тарифами и кабинетом поддержки — вымышленные продукты и данные, удобен для разбора классической архитектуры Front Controller за один вечер.</p>
+                    <p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">регистрация и вход, роли admin / user, профиль и смена пароля;</li>
+                        <li align="left">тикеты: статусы, приоритеты, категории, переписка в комментариях;</li>
+                        <li align="left">база знаний со статьями и клиентским поиском;</li>
+                        <li align="left">каталог продуктов и тарифов, лендинг с метриками SLA/CSAT;</li>
+                        <li align="left">светлая и тёмная тема, адаптивная вёрстка, раздел «Стек и архитектура» на сайте.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/SampleSupport.png" alt="Скриншот проекта Центр поддержки"></p>
                 `;
                 break;
 

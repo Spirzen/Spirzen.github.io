@@ -54,6 +54,7 @@ npx serve .
 | QR Generator | https://github.com/Spirzen/QR-Generator |
 | WordTrainer | https://github.com/Spirzen/WordTrainer |
 | Indian Film Manager | https://github.com/Spirzen/Indian-Film-Manager |
+| Центр поддержки (sample.support) | https://github.com/Spirzen/sample.support · [демо](http://sample.support/) |
 
 ### Игры
 
