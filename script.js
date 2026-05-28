@@ -238,7 +238,7 @@ function loadProject(projectId) {
         'OMSU', 'MiniBrowser', 'KnowledgeBase', 'CreditCalculator', 'AIAssistant', 
         'Camunda-Approval-Manager', 'ITUniverse', 'ITUniverseMobile', 'S3MediaManager', 'SteamRandomLauncher', 
 		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager', 'Government',
-        'AllStarsMVP', 'ArchiStyler', 'ArchiStylerOnline', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
+        'AllStarsMVP', 'ArchiStyler', 'ArchiStylerOnline', 'RandomManager', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
         'CodeExampleValidator', 'PATHManager', 'SchemaMaker', 'SchemaMakerOnline',
         'SQLGeneratorOnline', 'SQLGenerator', 'Excel2SQL'
     ];
@@ -339,6 +339,25 @@ function loadProject(projectId) {
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/ArchiStyler Online.png" alt="ArchiStyler Online"></p>
                     <p><strong>Десктопная версия:</strong> <a href="#" onclick="loadProject('ArchiStyler'); return false;">ArchiStyler</a></p>
+                `;
+                break;
+
+            case "RandomManager":
+                content = `
+                    <h2>RandomManager</h2>
+                    <p><strong>Сайт:</strong> <a href="https://spirzen.github.io/RandomManager/" target="_blank" rel="noopener">spirzen.github.io/RandomManager</a></p>
+                    <p><strong>Стек:</strong> React 18, TypeScript, Vite 6, Framer Motion, @tanstack/react-virtual; GitHub Pages, GitHub Actions</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/RandomManager" target="_blank" rel="noopener">https://github.com/Spirzen/RandomManager</a></p>
+                    <p><strong>Описание:</strong> SPA-каталог фильмов, игр и книг со случайным выбором с учётом фильтров. Статический сайт без бэкенда — каталог в JSON, удобно править и собирать для GitHub Pages.</p>
+                    <ul align="left">
+                        <li align="left">Три раздела: кино (жанры, актёры, рейтинг), игры (жанр, год, разработчик, платформа), книги (автор, год, жанр);</li>
+                        <li align="left">Поиск и фильтры по жанрам, году, рейтингу, актёрам, разработчикам, платформам и авторам;</li>
+                        <li align="left">Случайный выбор по текущей вкладке и активным фильтрам, с анимацией «рулетки»;</li>
+                        <li align="left">Тёмная и светлая темы, виртуализированная сетка карточек для больших каталогов;</li>
+                        <li align="left">Скрипты импорта из Steam, Wikipedia, Kinopoisk и IT Universe; локальная админка для CRUD в <code>data/*.json</code>.</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/RandomManager.png" alt="RandomManager"></p>
                 `;
                 break;
 
