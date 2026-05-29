@@ -18,6 +18,57 @@
 npx serve .
 ```
 
+## Архитектура (L1)
+
+Статический SPA без сборки: разметка в `index.html`, стили в `styles.css`, логика в `script.js`. Деплой — любой static host или GitHub Pages; бэкенда нет.
+
+```mermaid
+flowchart TB
+    subgraph Browser["Браузер"]
+        HTML["index.html<br/>5 вкладок: home · projects · it-book · analytics · books"]
+        CSS["styles.css<br/>тема data-theme, layout, eco-viz, pipeline"]
+        JS["script.js"]
+    end
+
+    subgraph Assets["Resources/"]
+        Photo["Photo/profile.jpg"]
+        Shots["Screenshots/*.png"]
+    end
+
+    subgraph JS_Modules["script.js — зоны ответственности"]
+        Theme["applyTheme / getPreferredTheme<br/>localStorage portfolio-theme"]
+        Tabs["tab-link / tab-switch<br/>показ .tab-pane"]
+        Eco["initEcoViz<br/>ECO_DETAILS + ECO_LINKS"]
+        Pipe["initAnalyticsPipeline<br/>PIPELINE_STEPS"]
+        Projects["loadProject(id)<br/>~40 кейсов → #projectDetails"]
+        Screens["enhanceProjectScreenshots"]
+    end
+
+    subgraph External["Внешние ссылки (не код репо)"]
+        GH["GitHub репозитории проектов"]
+        Spirzen["spirzen.ru · it-knowledge-base · MAUI app"]
+        Demo["GitHub Pages демо"]
+    end
+
+    HTML --> CSS
+    HTML --> JS
+    JS --> Theme
+    JS --> Tabs
+    JS --> Eco
+    JS --> Pipe
+    JS --> Projects
+    Projects --> Shots
+    HTML --> Photo
+    Projects -.->|описания, ссылки| GH
+    Projects -.-> Spirzen
+    Projects -.-> Demo
+    Tabs -->|it-book / analytics| Eco
+    Tabs -->|analytics| Pipe
+    Projects --> Screens
+```
+
+Редактируемая схема: [`docs/architecture/portfolio.drawio`](docs/architecture/portfolio.drawio) (draw.io / diagrams.net).
+
 ## Связанные репозитории
 
 ### Вселенная IT

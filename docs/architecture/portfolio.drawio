@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net" modified="2026-05-29T00:00:00.000Z" agent="Cursor" version="22.1.0" type="device">
+  <diagram id="portfolio-l1" name="Portfolio L1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="browser" value="Браузер" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="340" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="html" value="index.html&#xa;5 вкладок: home · projects · it-book · analytics · books" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="browser">
+          <mxGeometry x="20" y="45" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="css" value="styles.css&#xa;тема data-theme, layout, eco-viz, pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="browser">
+          <mxGeometry x="20" y="130" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="js" value="script.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="browser">
+          <mxGeometry x="20" y="200" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="assets" value="Resources/" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="220" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="photo" value="Photo/profile.jpg" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="assets">
+          <mxGeometry x="20" y="45" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="shots" value="Screenshots/*.png" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="assets">
+          <mxGeometry x="20" y="105" width="180" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="jsmod" value="script.js — зоны ответственности" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="600" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="theme" value="applyTheme / getPreferredTheme&#xa;localStorage portfolio-theme" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="jsmod">
+          <mxGeometry x="20" y="45" width="170" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="tabs" value="tab-link / tab-switch&#xa;показ .tab-pane" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="jsmod">
+          <mxGeometry x="210" y="45" width="170" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="eco" value="initEcoViz&#xa;ECO_DETAILS + ECO_LINKS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="jsmod">
+          <mxGeometry x="400" y="45" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="pipe" value="initAnalyticsPipeline&#xa;PIPELINE_STEPS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="jsmod">
+          <mxGeometry x="20" y="120" width="170" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="projects" value="loadProject(id)&#xa;~40 кейсов → #projectDetails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="jsmod">
+          <mxGeometry x="210" y="120" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="screens" value="enhanceProjectScreenshots" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="jsmod">
+          <mxGeometry x="430" y="120" width="150" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="external" value="Внешние ссылки (не код репо)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="700" y="380" width="280" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="gh" value="GitHub репозитории проектов" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">
+          <mxGeometry x="20" y="45" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="spirzen" value="spirzen.ru · it-knowledge-base · MAUI app" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">
+          <mxGeometry x="20" y="95" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="demo" value="GitHub Pages демо" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">
+          <mxGeometry x="20" y="145" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="deploy" value="Деплой: статика (npx serve · GitHub Pages) — без бэкенда и сборки" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=2;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="940" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="html" target="css">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="html" target="js">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="js" target="theme">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="js" target="tabs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="js" target="eco">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="js" target="pipe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="js" target="projects">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="projects" target="shots">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="html" target="photo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;dashed=1;dashPattern=8 8;strokeColor=#d79b00;" edge="1" parent="1" source="projects" target="gh">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="описания, ссылки" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;dashed=1;dashPattern=8 8;strokeColor=#d79b00;fontSize=10;" edge="1" parent="1" source="projects" target="spirzen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;dashed=1;dashPattern=8 8;strokeColor=#d79b00;" edge="1" parent="1" source="projects" target="demo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="it-book / analytics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;fontSize=10;" edge="1" parent="1" source="tabs" target="eco">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="analytics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;fontSize=10;" edge="1" parent="1" source="tabs" target="pipe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" edge="1" parent="1" source="projects" target="screens">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
