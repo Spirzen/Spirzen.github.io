@@ -260,6 +260,7 @@
 						<li onclick="loadProject('RandomManager')">🎲 RandomManager</li>
 						<li onclick="loadProject('DatabaseSchemaViewer')">🗄 Database Schema Viewer</li>
 						<li onclick="loadProject('PATHManager')">🛤 PATH Manager</li>
+						<li onclick="loadProject('OnlineCardGame')">🃏 Тени Шпиля — Online Card Game</li>
 						<li onclick="loadProject('SampleSupport')">🎧 Центр поддержки (sample.support)</li>
 						<li onclick="loadProject('SchemaMaker')">📐 Schema Maker</li>
 						<li onclick="loadProject('ArchiStyler')">🏗 ArchiStyler — архитектура → код</li>
@@ -299,6 +300,7 @@
 						<li onclick="loadProject('KnowledgeBase')">📎База знаний решений</li>
 						<li onclick="loadProject('AIAssistant')">👤 Simple AI Assistant</li>
 						<li onclick="loadProject('SteamRandomLauncher')">🎮 Steam Random Launcher</li>
+						<li onclick="loadProject('AutoBattler')">🃏 AutoBattler — Тени Шпиля</li>
 					</ul>
 				</div>
 				<div class="project-details" id="projectDetails">
@@ -481,6 +483,51 @@
 
 			<section class="itu-section itu-screenshot">
 				<img src="Resources/Screenshots/logoITU.png" alt="Вселенная IT — главная страница" class="itu-screenshot-img">
+			</section>
+
+			<section class="itu-section itu-arch-section">
+				<h2>Архитектура веб-энциклопедии</h2>
+				<p class="itu-arch-lead">Сайт <a href="https://github.com/spirzen/it-knowledge-base" target="_blank" rel="noopener">it-knowledge-base</a> — read-only SSG без бэкенда и авторизации: Markdown в Git → сборка Docusaurus → статический <code>build/</code> на GitHub Pages (<a href="https://spirzen.ru/" target="_blank" rel="noopener">spirzen.ru</a>).</p>
+
+				<ol class="itu-arch-steps">
+					<li>
+						<strong>Контекст (C4)</strong>
+						<span>Автор пушит в репозиторий → GitHub Actions (<code>deploy.yml</code>) → <code>npm ci</code> + <code>build</code> → CDN GitHub Pages с CNAME.</span>
+					</li>
+					<li>
+						<strong>Репозиторий</strong>
+						<span><code>docs/</code> (~3000 MDX), <code>src/</code> (swizzled theme, 150+ React-компонентов), <code>sidebars.js</code>, <code>static/</code>.</span>
+					</li>
+					<li>
+						<strong>Сборка</strong>
+						<span>Препроцессоры (<code>build-init-links.mjs</code>, <code>build-doc-search-index.mjs</code>, <code>build-doc-redirects.mjs</code>) → Docusaurus preset-classic, Remark/Rehype, lunr-search, redirects, image-zoom.</span>
+					</li>
+					<li>
+						<strong>Деплой</strong>
+						<span>Node 20 в CI, <code>peaceiris/actions-gh-pages</code> → ветка <code>gh-pages</code>, Yandex Metrica на проде.</span>
+					</li>
+					<li>
+						<strong>Runtime</strong>
+						<span>Гидрация React: Navbar + DocSearch, sidebar, MDX-страница с TOC и «См. также», клиентский поиск по <code>doc-search-index.json</code>, интерактивные демо-блоки.</span>
+					</li>
+				</ol>
+
+				<figure class="itu-arch-figure">
+					<a href="Resources/Screenshots/ITUniverse-Architecture.png" target="_blank" rel="noopener" title="Открыть схему в полном размере">
+						<img src="Resources/Screenshots/ITUniverse-Architecture.png" alt="Архитектура it-knowledge-base: репозиторий, сборка Docusaurus, деплой на GitHub Pages и runtime в браузере" class="itu-arch-img" loading="lazy">
+					</a>
+					<figcaption>
+						Полная схема: от push в Git до гидрации React в браузере. Клик — открыть в новой вкладке.
+					</figcaption>
+				</figure>
+
+				<ul class="itu-arch-legend" aria-label="Условные обозначения на схеме">
+					<li><span class="itu-legend-swatch itu-legend-swatch--config"></span>конфигурация</li>
+					<li><span class="itu-legend-swatch itu-legend-swatch--script"></span>скрипты / CI</li>
+					<li><span class="itu-legend-swatch itu-legend-swatch--core"></span>Docusaurus / плагины</li>
+					<li><span class="itu-legend-swatch itu-legend-swatch--react"></span>React-компоненты</li>
+					<li><span class="itu-legend-swatch itu-legend-swatch--runtime"></span>runtime / контент</li>
+				</ul>
 			</section>
 		</div>
 	</div>

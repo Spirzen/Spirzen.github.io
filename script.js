@@ -240,7 +240,7 @@ function loadProject(projectId) {
 		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager', 'Government',
         'AllStarsMVP', 'ArchiStyler', 'ArchiStylerOnline', 'RandomManager', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
         'CodeExampleValidator', 'PATHManager', 'SchemaMaker', 'SchemaMakerOnline',
-        'SQLGeneratorOnline', 'SQLGenerator', 'Excel2SQL'
+        'SQLGeneratorOnline', 'SQLGenerator', 'Excel2SQL', 'AutoBattler', 'OnlineCardGame'
     ];
     
     if (!knownProjects.includes(id)) {
@@ -508,6 +508,27 @@ function loadProject(projectId) {
                     </ul>
                     <p><strong>Скриншот:</strong></p>
                     <p><img src="Resources/Screenshots/SimpleCRM.png" alt="Скриншот проекта"></p>
+                `;
+                break;
+
+            case "OnlineCardGame":
+                content = `
+                    <h2>Тени Шпиля — Online Card Game</h2>
+                    <p><strong>Сайт:</strong> <a href="https://spirzen.github.io/OnlineCardGame/" target="_blank" rel="noopener">spirzen.github.io/OnlineCardGame</a></p>
+                    <p><strong>Стек:</strong> React 19, TypeScript 5.8, Vite 6, vite-plugin-pwa (Workbox), Vitest 3; GitHub Pages, GitHub Actions</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/OnlineCardGame" target="_blank" rel="noopener">https://github.com/Spirzen/OnlineCardGame</a></p>
+                    <p><strong>Описание:</strong> Браузерный карточный roguelike в духе <em>Slay the Spire</em>: процедурная карта из 15 этажей, пошаговые бои с намерениями врагов, реликвии, лавка, события и встроенный редактор карт. Полностью на клиенте — прогресс и кастомные карты в <code>localStorage</code>, установка как PWA.</p>
+                    <ul align="left">
+                        <li align="left">3 класса (Воин, Плут, Страж), 70+ карт, 15 реликвий, 9 врагов с уникальными паттернами;</li>
+                        <li align="left">узлы карты: бои, элиты, боссы, костёр, лавка, сундуки, случайные события;</li>
+                        <li align="left">энергия, блок, сила, уязвимость, мульти-таргет, журнал боя в реальном времени;</li>
+                        <li align="left">ежедневный забег с общим seed, статистика и таблица лидеров;</li>
+                        <li align="left">редактор пользовательских карт — кастомные карты попадают в пул наград и лавки;</li>
+                        <li align="left">контент в JSON (<code>cards.json</code>, <code>enemies.json</code>, <code>relics.json</code>), unit-тесты игровой логики (Vitest).</li>
+                    </ul>
+                    <p><strong>Скриншот:</strong></p>
+                    <p><img src="Resources/Screenshots/OnlineCardGame.png" alt="Online Card Game — бой"></p>
+                    <p><strong>Десктопная версия:</strong> <a href="#" onclick="loadProject('AutoBattler'); return false;">AutoBattler — Тени Шпиля (Pygame)</a></p>
                 `;
                 break;
 
@@ -966,6 +987,23 @@ function loadProject(projectId) {
                 `;
                 break;
 				
+			case "AutoBattler":
+                content = `
+                    <h2>AutoBattler — Тени Шпиля</h2>
+                    <p><strong>Стек:</strong> Python 3.10+, Pygame 2.5+, JSON-данные, процедурная генерация карты и звука, встроенный редактор карт, MIT</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/AutoBattler" target="_blank" rel="noopener">https://github.com/Spirzen/AutoBattler</a></p>
+                    <p><strong>Описание:</strong> Карточный roguelike без готового движка — на чистом Python и Pygame. Процедурная карта из 15 этажей, глубокий бой с несколькими врагами одновременно, реликвии, магазин и мета-прогресс между забегами. Вдохновлено <em>Slay the Spire</em>, но с темпом боя ближе к коллекционным карточным играм: добор карт каждый ход, энергия, выбор цели атаки и видимые намерения врагов.</p>
+                    <p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left">66+ уникальных карт, 9 врагов, 15 реликвий и ~40 статус-эффектов (яд, кровотечение, оглушение, lifesteal и др.);</li>
+                        <li align="left">узлы карты: бои, элиты, босс, костёр, лавка, сундук, случайные события;</li>
+                        <li align="left">бой с несколькими целями, журнал событий в реальном времени, процедурные SFX без внешних файлов;</li>
+                        <li align="left">встроенный редактор карт с живым предпросмотром — кастомные карты попадают в пул наград и магазина;</li>
+                        <li align="left">контент и баланс через JSON (<code>cards.json</code>, <code>enemies.json</code>, <code>relics.json</code>), сохранение статистики между забегами.</li>
+                    </ul>
+                `;
+                break;
+
 			case "SteamRandomLauncher":
                 content = `
                     <h2>Steam Random Launcher</h2>

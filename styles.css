@@ -611,6 +611,113 @@ hr {
   border: 1px solid var(--border);
 }
 
+.itu-arch-lead {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+
+.itu-arch-steps {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.itu-arch-steps li {
+  display: grid;
+  grid-template-columns: minmax(108px, 132px) 1fr;
+  gap: 10px 14px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.itu-arch-steps strong {
+  color: var(--heading);
+  font-size: 0.82rem;
+}
+
+.itu-arch-steps span {
+  color: var(--text-muted);
+}
+
+.itu-arch-figure {
+  margin: 0;
+}
+
+.itu-arch-figure a {
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.itu-arch-figure a:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.itu-arch-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.itu-arch-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.itu-arch-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.itu-arch-legend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.itu-legend-swatch {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.itu-legend-swatch--config { background: #fff3bf; }
+.itu-legend-swatch--script { background: #b2f2bb; }
+.itu-legend-swatch--core { background: #a5d8ff; }
+.itu-legend-swatch--react { background: #d0bfff; }
+.itu-legend-swatch--runtime { background: #f8f9fa; }
+
+[data-theme="dark"] .itu-legend-swatch--config { background: #5c4a00; }
+[data-theme="dark"] .itu-legend-swatch--script { background: #2b5a30; }
+[data-theme="dark"] .itu-legend-swatch--core { background: #1e4a6e; }
+[data-theme="dark"] .itu-legend-swatch--react { background: #4a3a6e; }
+[data-theme="dark"] .itu-legend-swatch--runtime { background: #3a3948; }
+
 /* Buttons — solid, no gradient */
 .btn-primary,
 .btn-secondary,
@@ -1164,5 +1271,10 @@ code {
   .itu-block-count {
     padding-left: 0;
     margin-top: 4px;
+  }
+
+  .itu-arch-steps li {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }
