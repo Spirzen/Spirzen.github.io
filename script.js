@@ -513,22 +513,23 @@ function loadProject(projectId) {
 
             case "OnlineCardGame":
                 content = `
-                    <h2>Тени Шпиля — Online Card Game</h2>
+                    <h2>Приключения Урала Батыра</h2>
                     <p><strong>Сайт:</strong> <a href="https://spirzen.github.io/OnlineCardGame/" target="_blank" rel="noopener">spirzen.github.io/OnlineCardGame</a></p>
                     <p><strong>Стек:</strong> React 19, TypeScript 5.8, Vite 6, vite-plugin-pwa (Workbox), Vitest 3; GitHub Pages, GitHub Actions</p>
                     <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/OnlineCardGame" target="_blank" rel="noopener">https://github.com/Spirzen/OnlineCardGame</a></p>
-                    <p><strong>Описание:</strong> Браузерный карточный roguelike в духе <em>Slay the Spire</em>: процедурная карта из 15 этажей, пошаговые бои с намерениями врагов, реликвии, лавка, события и встроенный редактор карт. Полностью на клиенте — прогресс и кастомные карты в <code>localStorage</code>, установка как PWA.</p>
+                    <p><strong>Эпос:</strong> <a href="https://skazki.rustih.ru/ural-batyr/" target="_blank" rel="noopener">«Урал-батыр»</a> — башкирское сказание о Янбирде, Урале, Шульгене, Хумай и поисках родника Яншишмы</p>
+                    <p><strong>Описание:</strong> Браузерный карточный roguelike по мотивам башкирского эпоса — механика в духе <em>Slay the Spire</em>, но с полностью оригинальной оболочкой: герои, враги, карты, события и дары вплетены в сюжет. У каждой карты, встречи и реликвии — развёрнутый лор с отсылками к эпосу. Без сервера: прогресс и кастомные карты в <code>localStorage</code>, установка как PWA.</p>
                     <ul align="left">
-                        <li align="left">3 класса (Воин, Плут, Страж), 70+ карт, 15 реликвий, 9 врагов с уникальными паттернами;</li>
-                        <li align="left">узлы карты: бои, элиты, боссы, костёр, лавка, сундуки, случайные события;</li>
-                        <li align="left">энергия, блок, сила, уязвимость, мульти-таргет, журнал боя в реальном времени;</li>
-                        <li align="left">ежедневный забег с общим seed, статистика и таблица лидеров;</li>
-                        <li align="left">редактор пользовательских карт — кастомные карты попадают в пул наград и лавки;</li>
-                        <li align="left">контент в JSON (<code>cards.json</code>, <code>enemies.json</code>, <code>relics.json</code>), unit-тесты игровой логики (Vitest).</li>
+                        <li align="left">4 батыра — Урал, Хумай, Акбузат, Янбирде; у каждого своя колода, цитата из эпоса и стиль игры;</li>
+                        <li align="left">3 части эпоса на карте из 15 этапов: <em>Янбирде и дети</em> → <em>Поиски Яншишмы</em> → <em>Наследие батыра</em>;</li>
+                        <li align="left">76+ карт с лор-текстами (<em>Удар сукмара</em>, <em>Гром Самрау</em>, <em>Капля Яншишмы</em>…), 15 даров, 12 врагов, финал — битва с Шульгеном;</li>
+                        <li align="left">9 событий на тропе: родник Яншишмы, лебедушка Хумай, конь Акбузат, голос Шульгена, совет зверей…;</li>
+                        <li align="left">пошаговый бой с намерениями врагов, полные тултипы лора, лавка кочевника, привал у костра, кузница батыра;</li>
+                        <li align="left">ежедневный поход с общим seed, статистика и топ батыров, редактор пользовательских карт;</li>
+                        <li align="left">контент в JSON + скрипт <code>expand-lore.mjs</code> для массового обновления описаний, unit-тесты (Vitest).</li>
                     </ul>
                     <p><strong>Скриншот:</strong></p>
-                    <p><img src="Resources/Screenshots/OnlineCardGame.png" alt="Online Card Game — бой"></p>
-                    <p><strong>Десктопная версия:</strong> <a href="#" onclick="loadProject('AutoBattler'); return false;">AutoBattler — Тени Шпиля (Pygame)</a></p>
+                    <p><img src="Resources/Screenshots/OnlineCardGame.png" alt="Приключения Урала Батыра — выбор батыра"></p>
                 `;
                 break;
 

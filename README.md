@@ -114,7 +114,7 @@ flowchart TB
 | Pythonablo | https://github.com/Spirzen/Pythonablo |
 | Simple Survivors | https://github.com/Spirzen/Simple-Survivors |
 | AutoBattler (Тени Шпиля) | https://github.com/Spirzen/AutoBattler |
-| Online Card Game (Тени Шпиля) | https://github.com/Spirzen/OnlineCardGame · [демо](https://spirzen.github.io/OnlineCardGame/) |
+| Приключения Урала Батыра | https://github.com/Spirzen/OnlineCardGame · [демо](https://spirzen.github.io/OnlineCardGame/) |
 
 ## Ресурсы
 
