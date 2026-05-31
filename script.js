@@ -240,7 +240,7 @@ function loadProject(projectId) {
 		'SimplePCMessenger', 'XMLValidator', 'DockerMiniManager', 'Government',
         'AllStarsMVP', 'ArchiStyler', 'ArchiStylerOnline', 'RandomManager', 'DependencyGraphSentinel', 'DatabaseSchemaViewer',
         'CodeExampleValidator', 'PATHManager', 'SchemaMaker', 'SchemaMakerOnline',
-        'SQLGeneratorOnline', 'SQLGenerator', 'Excel2SQL', 'AutoBattler', 'OnlineCardGame'
+        'SQLGeneratorOnline', 'SQLGenerator', 'Excel2SQL', 'AutoBattler', 'OnlineCardGame', 'PromGraf'
     ];
     
     if (!knownProjects.includes(id)) {
@@ -1068,6 +1068,24 @@ function loadProject(projectId) {
                 `;
                 break;
 				
+			case "PromGraf":
+                content = `
+                    <h2>PromGraf — Prometheus + Grafana</h2>
+                    <p><strong>Стек:</strong> Docker Compose, Prometheus v2.53, Grafana 12, windows_exporter, YAML provisioning, PowerShell</p>
+                    <p><strong>Ссылка на GitHub:</strong> <a href="https://github.com/Spirzen/PromGraf" target="_blank" rel="noopener">https://github.com/Spirzen/PromGraf</a></p>
+                    <p><strong>Документация:</strong> <a href="https://github.com/Spirzen/PromGraf/blob/main/README.md" target="_blank" rel="noopener">README</a> (быстрый старт) · <a href="https://github.com/Spirzen/PromGraf/blob/main/DEPLOYMENT.md" target="_blank" rel="noopener">DEPLOYMENT.md</a> (полное развёртывание и troubleshooting)</p>
+                    <p><strong>Описание:</strong> Стартовый набор observability для Windows: поднимает Prometheus и Grafana в Docker, автоматически подключает datasource, импортирует дашборд Windows Exporter и собирает метрики хоста через <code>windows_exporter</code>. Нестандартные порты (9189 / 8347 / 9182), чтобы не конфликтовать с типичными dev-сервисами; русский интерфейс Grafana по умолчанию.</p>
+                    <p>Основные возможности</p>
+                    <ul align="left">
+                        <li align="left"><code>docker compose up -d</code> — готовый стек с персистентными volumes;</li>
+                        <li align="left">provisioning datasource Prometheus и дашборда <strong>Windows Exporter Dashboard</strong> (Grafana.com ID 14694);</li>
+                        <li align="left">скрейп метрик Windows-хоста с <code>host.docker.internal:9182</code>;</li>
+                        <li align="left">PowerShell-скрипт установки windows_exporter (режимы Service и Portable);</li>
+                        <li align="left">reload конфигурации Prometheus без перезапуска, настройка через <code>.env</code>.</li>
+                    </ul>
+                `;
+                break;
+
 			case "DockerMiniManager":
                 content = `
                     <h2>Docker Mini Manager</h2>
