@@ -56,7 +56,7 @@
         <mxCell id="gh" value="GitHub репозитории проектов" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">
           <mxGeometry x="20" y="45" width="240" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="spirzen" value="spirzen.ru · it-knowledge-base · MAUI app" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">
+        <mxCell id="spirzen" value="spirzen.ru · code.spirzen.ru · play.spirzen.ru · MAUI" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">
           <mxGeometry x="20" y="95" width="240" height="40" as="geometry" />
         </mxCell>
         <mxCell id="demo" value="GitHub Pages демо" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="external">

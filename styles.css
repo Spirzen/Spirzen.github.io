@@ -504,6 +504,51 @@ hr {
   margin-bottom: 14px;
 }
 
+.itu-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.itu-tier-card {
+  padding: 18px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--primary);
+}
+
+.itu-tier-card--kb {
+  border-top-color: #7b1fa2;
+}
+
+.itu-tier-card--code {
+  border-top-color: #1565c0;
+}
+
+.itu-tier-card--play {
+  border-top-color: #ef6c00;
+}
+
+.itu-tier-card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.itu-tier-role {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.itu-tier-card p:last-child {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 .itu-products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1110,6 +1155,23 @@ hr {
   max-width: none;
 }
 
+.eco-row--triple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.eco-row--triple .eco-node {
+  min-width: 0;
+  max-width: none;
+}
+
+.eco-node--wide {
+  width: 100%;
+  max-width: 100%;
+}
+
 .eco-row--split {
   align-items: flex-start;
   gap: 16px;
@@ -1276,5 +1338,9 @@ code {
   .itu-arch-steps li {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .eco-row--triple {
+    grid-template-columns: 1fr;
   }
 }
