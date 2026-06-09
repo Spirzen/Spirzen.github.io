@@ -1,12 +1,12 @@
 # Портфолио — Тагиров Тимур
 
-Статическое портфолио: Fullstack-разработка, системный анализ, pet-проекты и экосистема **«Вселенная IT»** ([spirzen.ru](https://spirzen.ru/) · [code.spirzen.ru](https://code.spirzen.ru/) · [play.spirzen.ru](https://play.spirzen.ru/)).
+Статическое портфолио: Fullstack-разработка, системный анализ, pet-проекты и экосистема **«Вселенная IT»** ([spirzen.ru](https://spirzen.ru/) · [code](https://code.spirzen.ru/) · [play](https://play.spirzen.ru/) · [assets](https://assets.spirzen.ru/)).
 
 ## Разделы
 
 - **Главная** — стек, достижения, spotlight «Вселенная IT»
 - **Проекты** — 40+ pet-проектов с описаниями и скриншотами
-- **Вселенная IT** — трёхуровневая платформа: энциклопедия (Docusaurus) + код (Astro/Shiki) + интерактив (React) + MAUI
+- **Вселенная IT** — четырёхдоменная платформа: энциклопедия + код + интерактив + медиа + MAUI
 - **Аналитика** — BPMN, интеграции, low-code
 - **Книги** — опубликованные и в работе
 
@@ -46,7 +46,7 @@ flowchart TB
 
     subgraph External["Внешние ссылки (не код репо)"]
         GH["GitHub репозитории проектов"]
-        Spirzen["spirzen.ru · code.spirzen.ru · play.spirzen.ru · MAUI"]
+        Spirzen["spirzen.ru · code · play · assets · MAUI"]
         Demo["GitHub Pages демо"]
     end
 
@@ -78,6 +78,7 @@ flowchart TB
 | Энциклопедия (хаб) | https://github.com/Spirzen/it-knowledge-base | https://spirzen.ru/ |
 | IT Code Examples | https://github.com/Spirzen/it-code-examples | https://code.spirzen.ru/ |
 | IT Play | https://github.com/Spirzen/it-play | https://play.spirzen.ru/ |
+| IT Encyclopedia Media | https://github.com/Spirzen/it-encyclopedia-media | https://assets.spirzen.ru/ |
 | Мобильное приложение | https://github.com/Spirzen/itu-mobile-app | APK на spirzen.ru |
 
 ### Флагманские pet-проекты

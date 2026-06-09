@@ -531,6 +531,10 @@ hr {
   border-top-color: #ef6c00;
 }
 
+.itu-tier-card--media {
+  border-top-color: #2e7d32;
+}
+
 .itu-tier-card h3 {
   margin: 0 0 4px;
   font-size: 1rem;
@@ -1167,6 +1171,18 @@ hr {
   max-width: none;
 }
 
+.eco-row--quad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.eco-row--quad .eco-node {
+  min-width: 0;
+  max-width: none;
+}
+
 .eco-node--wide {
   width: 100%;
   max-width: 100%;
@@ -1340,7 +1356,8 @@ code {
     gap: 4px;
   }
 
-  .eco-row--triple {
+  .eco-row--triple,
+  .eco-row--quad {
     grid-template-columns: 1fr;
   }
 }
