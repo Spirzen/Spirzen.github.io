@@ -23,29 +23,33 @@ const PIPELINE_STEPS = [
 ];
 
 const ECO_DETAILS = {
-    author: { title: 'Автор и архитектор', text: 'Тагиров Тимур — модель знаний, четыре репозитория, iframe/postMessage, медиа-CDN, CI/CD и контент с 2018 года.' },
-    content: { title: '~3400 материалов', text: '~2900 статей энциклопедии, лаборатория, глоссарий, инструменты, контекст и философия в docs/.' },
-    kb: { title: 'spirzen.ru — энциклопедия', text: 'Docusaurus 3.10 + React 19: текст, навигация, SEO, DocSearch (Ctrl+K), PDF. Хаб — встраивает code/play; картинки — URL с assets.' },
-    code: { title: 'code.spirzen.ru', text: 'it-code-examples: ~2312 листингов, Astro 5 + Shiki, серии, diff, мультифайловые примеры, embed /e/embed/.' },
-    play: { title: 'play.spirzen.ru', text: 'it-play: ~500 симуляторов, Astro + React 19, Konva, embed /p/embed/. Тяжёлый интерактив не раздувает бандл энциклопедии.' },
-    media: { title: 'assets.spirzen.ru', text: 'it-encyclopedia-media: ~670 иллюстраций, статика на GitHub Pages без сборки. Путь повторяет docs/encyclopedia/; общие PNG — _shared/img/.' },
-    integration: { title: 'Интеграция', text: 'ExternalCodeEmbed / ExternalPlayEmbed + postMessage (тема, высота, fullscreen); иллюстрации — img src на assets.spirzen.ru в markdown.' },
+    author: { title: 'Автор и архитектор', text: 'Тагиров Тимур — модель знаний, 15+ репозиториев, 18 сервисов, хаб status.spirzen.ru, iframe/postMessage, порталы Astro, CI/CD и контент с 2018 года.' },
+    content: { title: '~3400 материалов', text: '~2900 статей энциклопедии, контекст, философия, about; контент порталов — в it-terms, it-lab, it-tools и др.' },
+    status: { title: 'status.spirzen.ru', text: 'it-portals — хаб навигации и мониторинга: services.json, ecosystem-urls.json, snapshot статусов, сетка 18 сервисов по 5 категориям.' },
+    core: { title: 'Ядро (core)', text: 'spirzen.ru — Docusaurus, DocSearch, SEO; search.spirzen.ru — сквозной поиск it-search; assets.spirzen.ru — CDN ~670 иллюстраций.' },
+    learn: { title: 'Обучение (learn)', text: 'terms (~69 стр. глоссария), lab (~180 статей), exam, quiz, kids — Astro-порталы, exclude + redirects из KB, PortalLayout.' },
+    create: { title: 'Создание (create)', text: 'code (~2312 листингов), play (~500 демо), html (WebEditor), writer, schema, sql — практика и embed без раздувания энциклопедии.' },
+    toolscat: { title: 'Утилиты и игра', text: 'tools (~64 статьи), color, random — справочники; games.spirzen.ru (it-games) — IT-игры и spin-off материалы.' },
+    integration: { title: 'Интеграция', text: 'ExternalCodeEmbed / ExternalPlayEmbed + postMessage; exclude + client-redirects для порталов; ecosystem-urls.json; PortalLayout и itu-theme между доменами.' },
+    mgmt: { title: 'it-management', text: 'Локальная панель :8787 — Start/Stop dev-серверов (3000, 4321, 4322, 4330+), build, deploy, SSE-логи, дерево контента всех repo в F:\\ITUniverse.' },
     maui: { title: '.NET MAUI', text: 'Нативная оболочка itu-mobile-app: Shell, каталог, закладки, ru.spirzen.ituniverse.' },
-    webview: { title: 'WebView и поиск', text: 'Статьи с spirzen.ru, локальный search-manifest, офлайн-закладки, навигация назад/вперёд.' },
-    deploy: { title: 'CI/CD и инфраструктура', text: '4 репозитория GitHub → GitHub Actions → GitHub Pages на отдельных доменах; Cloudflare (DNS, CDN, WAF, SSL). Без общего backend.' }
+    webview: { title: 'WebView и поиск', text: 'Статьи с spirzen.ru и порталов, локальный search-manifest, офлайн-закладки, навигация назад/вперёд.' },
+    deploy: { title: 'CI/CD и инфраструктура', text: '18 независимых GitHub Actions → GitHub Pages на отдельных доменах; Cloudflare (DNS, CDN, WAF, SSL). Без общего backend.' }
 };
 
 const ECO_LINKS = {
-    author: ['content', 'kb', 'code', 'play', 'media'],
-    content: ['author', 'kb'],
-    kb: ['code', 'play', 'media', 'integration', 'webview', 'deploy'],
-    code: ['kb', 'integration', 'deploy'],
-    play: ['kb', 'integration', 'deploy'],
-    media: ['kb', 'integration', 'deploy'],
-    integration: ['kb', 'code', 'play', 'media'],
-    maui: ['webview', 'kb'],
-    webview: ['maui', 'kb'],
-    deploy: ['kb', 'code', 'play', 'media']
+    author: ['content', 'status', 'core', 'learn', 'create'],
+    content: ['author', 'status', 'core'],
+    status: ['author', 'core', 'learn', 'create', 'toolscat', 'integration'],
+    core: ['status', 'learn', 'create', 'integration', 'deploy'],
+    learn: ['status', 'core', 'integration', 'webview'],
+    create: ['status', 'core', 'integration', 'deploy'],
+    toolscat: ['status', 'learn', 'integration'],
+    integration: ['status', 'core', 'learn', 'create', 'toolscat', 'deploy'],
+    mgmt: ['deploy', 'core', 'create'],
+    maui: ['webview', 'core'],
+    webview: ['maui', 'core', 'learn'],
+    deploy: ['status', 'core', 'create', 'mgmt']
 };
 
 function initAnalyticsPipeline() {
@@ -470,7 +474,7 @@ function loadProject(projectId) {
                     <p><strong>GitHub:</strong> <a href="https://github.com/Spirzen/it-knowledge-base" target="_blank" rel="noopener">it-knowledge-base</a></p>
                     <p><strong>Стек:</strong> Docusaurus 3.10, React 19, TypeScript, MDX, Mermaid, DocSearch, html2canvas + jsPDF, ExternalCodeEmbed / ExternalPlayEmbed, GitHub Actions → GitHub Pages.</p>
                     <p><strong>Масштаб:</strong> ~2900 статей энциклопедии, ~3400 материалов в docs/, 9 блоков, 7 разделов меню, PDF-экспорт, «См. также», прогресс главы.</p>
-                    <p>Центральный домен распределённой платформы: текст, навигация и SEO. Код и интерактив — на <a href="https://code.spirzen.ru/" target="_blank" rel="noopener">code.spirzen.ru</a> и <a href="https://play.spirzen.ru/" target="_blank" rel="noopener">play.spirzen.ru</a> (iframe + postMessage); иллюстрации — на <a href="https://assets.spirzen.ru/" target="_blank" rel="noopener">assets.spirzen.ru</a> (URL в markdown).</p>
+                    <p>Центральный домен многоуровневой платформы: текст, навигация и SEO. Код и интерактив — на <a href="https://code.spirzen.ru/" target="_blank" rel="noopener">code.spirzen.ru</a> и <a href="https://play.spirzen.ru/" target="_blank" rel="noopener">play.spirzen.ru</a> (iframe + postMessage); глоссарий, lab и tools — на отдельных порталах; карта всей экосистемы — <a href="https://status.spirzen.ru/" target="_blank" rel="noopener">status.spirzen.ru</a>.</p>
                     <p>Флагманский образовательный проект с 2018 года (контент), публичный SSG — с 2025. Lead Developer &amp; Content Architect — я.</p>
                     <p><a href="#" class="tab-switch" data-tab="it-book">Подробнее на вкладке «Вселенная IT» →</a></p>
                     <p><img src="Resources/Screenshots/logoITU.png" alt="Вселенная IT"></p>
@@ -484,7 +488,7 @@ function loadProject(projectId) {
                     <p><strong>GitHub:</strong> <a href="https://github.com/Spirzen/it-code-examples" target="_blank" rel="noopener">it-code-examples</a></p>
                     <p><strong>Стек:</strong> Astro 5 (SSG), Shiki, TypeScript, catalog-search, embed-resize, GitHub Actions → GitHub Pages.</p>
                     <p><strong>Масштаб:</strong> ~2312 примеров кода, 15+ языков программирования, практикумы-серии, diff версий, мультифайловые листинги.</p>
-                    <p>Отдельный репозиторий экосистемы «Вселенная IT»: длинные листинги не раздувают билд Docusaurus и получают свой лимит GitHub Pages. В статьях энциклопедии встраиваются через <code>ExternalCodeEmbed</code> (<code>/e/embed/</code>).</p>
+                    <p>Второй домен экосистемы «Вселенная IT» (категория create): длинные листинги не раздувают билд Docusaurus. В статьях энциклопедии и порталов — <code>ExternalCodeEmbed</code> (<code>/e/embed/</code>).</p>
                     <ul align="left">
                         <li align="left">Подсветка Shiki (light + dark) на этапе сборки;</li>
                         <li align="left">Копирование, полноэкранный просмотр, синхрон темы с spirzen.ru;</li>
@@ -501,7 +505,7 @@ function loadProject(projectId) {
                     <p><strong>GitHub:</strong> <a href="https://github.com/Spirzen/it-play" target="_blank" rel="noopener">it-play</a></p>
                     <p><strong>Стек:</strong> Astro 5 + React 19 (islands), Konva, html2canvas, jsPDF, qrcode, GitHub Actions → GitHub Pages.</p>
                     <p><strong>Масштаб:</strong> ~500 интерактивных симуляторов, тренажёров и визуализаторов — терминал, Docker, SQL, Git, Kafka, нейросети, HTTP, ООП, CI/CD и др.</p>
-                    <p>Третий домен распределённой платформы «Вселенная IT»: тяжёлый React-интерактив вынесен из бандла Docusaurus. В статьях — <code>ExternalPlayEmbed</code> (<code>/p/embed/</code>).</p>
+                    <p>Домен create в многоуровневой платформе «Вселенная IT»: тяжёлый React-интерактив вынесен из бандла Docusaurus и lab-портала. В статьях — <code>ExternalPlayEmbed</code> (<code>/p/embed/</code>).</p>
                     <ul align="left">
                         <li align="left">Каталог с catalog-search и фильтром по категориям;</li>
                         <li align="left">Авто-высота iframe (ResizeObserver), синхрон темы, fullscreen;</li>
@@ -518,7 +522,7 @@ function loadProject(projectId) {
                     <p><strong>GitHub:</strong> <a href="https://github.com/Spirzen/it-encyclopedia-media" target="_blank" rel="noopener">it-encyclopedia-media</a></p>
                     <p><strong>Стек:</strong> статический GitHub Pages (без сборки), <code>media-manifest.json</code>, migrate-from-kb.mjs, generate-manifest.mjs.</p>
                     <p><strong>Масштаб:</strong> ~670 иллюстраций, скриншотов и экспортов диаграмм для статей энциклопедии.</p>
-                    <p>Четвёртый домен экосистемы «Вселенная IT»: растровые картинки не раздувают clone и билд Docusaurus. Путь в репозитории повторяет путь статьи в <code>docs/encyclopedia/</code>; общие диаграммы — <code>_shared/img/</code>.</p>
+                    <p>CDN ядра экосистемы «Вселенная IT»: растровые картинки не раздувают clone и билд Docusaurus. Путь в репозитории повторяет путь статьи в <code>docs/encyclopedia/</code>; общие диаграммы — <code>_shared/img/</code>.</p>
                     <ul align="left">
                         <li align="left">В markdown — <code>![alt](https://assets.spirzen.ru/encyclopedia/…)</code>;</li>
                         <li align="left">Главная — космическая витрина со случайными картинками из библиотеки;</li>

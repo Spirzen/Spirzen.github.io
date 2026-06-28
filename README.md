@@ -1,12 +1,12 @@
 # Портфолио — Тагиров Тимур
 
-Статическое портфолио: Fullstack-разработка, системный анализ, pet-проекты и экосистема **«Вселенная IT»** ([spirzen.ru](https://spirzen.ru/) · [code](https://code.spirzen.ru/) · [play](https://play.spirzen.ru/) · [assets](https://assets.spirzen.ru/)).
+Статическое портфолио: Fullstack-разработка, системный анализ, pet-проекты и экосистема **«Вселенная IT»** — [status.spirzen.ru](https://status.spirzen.ru/) · [spirzen.ru](https://spirzen.ru/) · [code](https://code.spirzen.ru/) · [play](https://play.spirzen.ru/) · [assets](https://assets.spirzen.ru/) и ещё 13 сервисов.
 
 ## Разделы
 
 - **Главная** — стек, достижения, spotlight «Вселенная IT»
 - **Проекты** — 40+ pet-проектов с описаниями и скриншотами
-- **Вселенная IT** — четырёхдоменная платформа: энциклопедия + код + интерактив + медиа + MAUI
+- **Вселенная IT** — многоуровневая платформа: 18 сервисов, 5 категорий, хаб status.spirzen.ru, порталы, MAUI
 - **Аналитика** — BPMN, интеграции, low-code
 - **Книги** — опубликованные и в работе
 
@@ -46,7 +46,7 @@ flowchart TB
 
     subgraph External["Внешние ссылки (не код репо)"]
         GH["GitHub репозитории проектов"]
-        Spirzen["spirzen.ru · code · play · assets · MAUI"]
+        Spirzen["status · spirzen · code · play · assets · terms · lab · …"]
         Demo["GitHub Pages демо"]
     end
 
@@ -73,13 +73,23 @@ flowchart TB
 
 ### Вселенная IT
 
-| Проект | Репозиторий | Сайт |
-|--------|-------------|------|
+| Роль | Репозиторий | Сайт |
+|------|-------------|------|
+| Хаб экосистемы | https://github.com/Spirzen/it-portals | https://status.spirzen.ru/ |
 | Энциклопедия (хаб) | https://github.com/Spirzen/it-knowledge-base | https://spirzen.ru/ |
+| Поиск | https://github.com/Spirzen/it-search | https://search.spirzen.ru/ |
 | IT Code Examples | https://github.com/Spirzen/it-code-examples | https://code.spirzen.ru/ |
 | IT Play | https://github.com/Spirzen/it-play | https://play.spirzen.ru/ |
 | IT Encyclopedia Media | https://github.com/Spirzen/it-encyclopedia-media | https://assets.spirzen.ru/ |
+| Глоссарий | https://github.com/Spirzen/it-terms | https://terms.spirzen.ru/ |
+| Лаборатория | https://github.com/Spirzen/it-lab | https://lab.spirzen.ru/ |
+| Инструменты | https://github.com/Spirzen/it-tools | https://tools.spirzen.ru/ |
+| Игры | https://github.com/Spirzen/it-games | https://games.spirzen.ru/ |
+| Для детей | https://github.com/Spirzen/it-kids | https://kids.spirzen.ru/ |
+| Панель разработчика | https://github.com/Spirzen/it-management | localhost:8787 |
 | Мобильное приложение | https://github.com/Spirzen/itu-mobile-app | APK на spirzen.ru |
+
+Полный список 18 сервисов — на [status.spirzen.ru](https://status.spirzen.ru/) (`services.json`).
 
 ### Флагманские pet-проекты
 

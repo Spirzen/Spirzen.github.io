@@ -535,6 +535,51 @@ hr {
   border-top-color: #2e7d32;
 }
 
+.itu-tier-card--status {
+  border-top-color: #6366f1;
+}
+
+.itu-tier-card--core {
+  border-top-color: #818cf8;
+}
+
+.itu-tier-card--learn {
+  border-top-color: #34d399;
+}
+
+.itu-tier-card--create {
+  border-top-color: #22d3ee;
+}
+
+.itu-tier-card--tools {
+  border-top-color: #a3e635;
+}
+
+.itu-tier-card--playcat {
+  border-top-color: #f97316;
+}
+
+.itu-hub-card {
+  margin-bottom: 20px;
+}
+
+.itu-layer-intro {
+  margin-bottom: 16px;
+}
+
+.itu-category-block {
+  margin-bottom: 18px;
+}
+
+.itu-category-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .itu-tier-card h3 {
   margin: 0 0 4px;
   font-size: 1rem;
